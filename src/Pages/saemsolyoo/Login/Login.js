@@ -27,28 +27,17 @@ class Login extends Component {
 
   handleIdInput = (e) => {
     const userId = e.target.value;
-    console.log(`앞 : ${userId}`);
-    this.setState(
-      {
-        id: userId,
-      }
-      // () => {
-      //   this.validation();
-      // }
-    );
+    this.setState({
+      id: userId,
+    });
   };
 
   handlePwInput = (e) => {
     const userPw = e.target.value;
 
-    this.setState(
-      {
-        pw: userPw,
-      }
-      // () => {
-      //   this.validation();
-      // }
-    );
+    this.setState({
+      pw: userPw,
+    });
   };
 
   render() {
