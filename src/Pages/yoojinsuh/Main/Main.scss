@@ -1,0 +1,428 @@
+@import url("https://use.fontawesome.com/releases/v5.15.2/css/all.css");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lobster+Two:ital@1&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: black;
+  background-color: #ffffff;
+  font-size: 15px;
+  font-weight: normal;
+  font-family: "Lato", sans-serif;
+}
+
+.navbar {
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 45px;
+  width: 100%;
+  border-bottom: 1px solid #dbdbdb;
+
+  p {
+    margin-left: 20px;
+    font-size: 25px;
+    font-family: "Lobster Two", cursive;
+  }
+
+  .searchContainer {
+    position: relative;
+
+    input {
+      width: 230px;
+      height: 23px;
+      padding: 13px 0px 13px 0px;
+      color: #b6b4b4;
+      background-color: #fafafae5;
+      border: 1px solid #dbdbdb;
+      border-radius: 2px;
+      font-size: 14px;
+      text-align: center;
+    }
+
+    i {
+      position: absolute;
+      width: 10px;
+      margin-top: 7px;
+      margin-left: 75px;
+      color: #b6b4b4;
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 150px;
+    margin-right: 20px;
+
+    i {
+      font-size: 25px;
+    }
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 1500px;
+  background-color: #fafafa;
+
+  .feeds {
+    display: flex;
+    flex-direction: column;
+    height: 2000px;
+    width: 600px;
+    margin-left: 20px;
+    background-color: #fafafa;
+
+    .stories {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 120px;
+      margin-top: 60px;
+      border: 1px solid #dbdbdb;
+      border-radius: 2px;
+
+      .stories .story1,
+      .story2,
+      .story3,
+      .story4,
+      .story5 {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 90px;
+      }
+
+      p {
+        text-align: center;
+        margin-top: 3px;
+        font-size: 13px;
+        padding-left: 10px;
+      }
+
+      img {
+        width: 70px;
+        margin-left: 15px;
+        padding: 2px;
+        border-radius: 40px;
+        border: 2px solid #c62e61;
+      }
+    }
+
+    article {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      margin-top: 25px;
+      border: 1px solid #dbdbdb;
+      border-radius: 2px;
+
+      header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+
+        .accountContainer {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          align-items: center;
+
+          h1 {
+            width: 476px;
+            padding-left: 13px;
+            color: black;
+            text-align: left;
+            font-weight: bold;
+          }
+
+          img {
+            width: 45px;
+            margin-left: 15px;
+            border-radius: 30px;
+            padding: 2px;
+            border: 2px solid #c62e61;
+          }
+        }
+
+        i {
+          margin-right: 20px;
+          color: #595757;
+        }
+      }
+
+      .mainImage {
+        width: 100%;
+        height: 600px;
+      }
+
+      footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        margin: 0 20px;
+
+        i {
+          width: 20px;
+          font-size: 25px;
+        }
+
+        .footerNav {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100px;
+
+          i {
+            margin-right: 20px;
+          }
+        }
+      }
+
+      .likes {
+        margin-left: 20px;
+        font-weight: bold;
+      }
+
+      .contentContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 8px;
+        max-height: 25px;
+        margin-left: 20px;
+
+        .accountName {
+          margin-right: 10px;
+          margin-bottom: 5px;
+          font-weight: bold;
+        }
+
+        .contentDetail {
+          margin-bottom: 5px;
+        }
+      }
+
+      .commentsLog {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-left: 20px;
+
+        .commentsContainer {
+          list-style-type: none;
+
+          li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 3px;
+            margin-bottom: 5px;
+
+            .userAccount {
+              font-weight: bold;
+            }
+
+            span {
+              margin-right: 10px;
+            }
+
+            i {
+              margin-right: 20px;
+              align-items: center;
+              color: darkgrey;
+              font-size: 13px;
+            }
+          }
+        }
+
+        p {
+          margin-top: 15px;
+          margin-bottom: 15px;
+          color: #959595;
+          font-size: 10px;
+        }
+      }
+    }
+
+    .addComment {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      height: 50px;
+      padding: 15px 20px 15px 20px;
+      border-right: 1px solid #dbdbdb;
+      border-bottom: 1px solid #dbdbdb;
+      border-left: 1px solid #dbdbdb;
+      border-radius: 2px;
+
+      .inputComment {
+        width: 500px;
+        border: none;
+        outline: none;
+      }
+
+      .inputSubmit {
+        width: 30px;
+        color: #c0dffd;
+        border: none;
+      }
+
+      .darkBtn {
+        color: #1c7ed6;
+      }
+    }
+  }
+
+  .main-right {
+    height: 100%;
+    width: 400px;
+    margin-top: 30px;
+    margin-right: 20px;
+    margin-left: 30px;
+    background-color: #fafafa;
+
+    .myProfile {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 120px;
+      margin-top: 30px;
+      background-color: #fafafa;
+
+      img {
+        width: 70px;
+        border-radius: 70px;
+      }
+
+      .accountInfo {
+        margin-left: 15px;
+        background-color: #fafafa;
+
+        h1,
+        h2 {
+          background-color: #fafafa;
+          text-align: left;
+        }
+
+        h1 {
+          font-weight: bold;
+        }
+
+        h2 {
+          margin-top: 6px;
+          color: rgb(145, 144, 144);
+        }
+      }
+    }
+
+    .suggestions {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      height: 260px;
+      margin-top: 20px;
+      background-color: #fafafa;
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        height: 30px;
+        margin-bottom: 10px;
+        background-color: #fafafa;
+
+        .suggestForYou {
+          color: rgb(145, 144, 144);
+          background-color: #fafafa;
+          font-weight: bold;
+        }
+
+        .seeAll {
+          color: #262626;
+          background-color: #fafafa;
+          font-weight: bold;
+          font-size: 13px;
+        }
+      }
+
+      .suggestProfiles {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        background-color: #fafafa;
+
+        .suggestProfile1,
+        .suggestProfile2,
+        .suggestProfile3 {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          background-color: #fafafa;
+        }
+
+        .imageAndName {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: flex-start;
+          background-color: #fafafa;
+
+          .profileContainer {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-color: #fafafa;
+          }
+
+          img {
+            width: 35px;
+            border-radius: 35px;
+            margin-right: 15px;
+          }
+
+          .name {
+            background-color: #fafafa;
+            font-weight: bold;
+          }
+
+          .detail {
+            margin-top: 5px;
+            color: rgb(145, 144, 144);
+            background-color: #fafafa;
+            font-size: 12px;
+          }
+        }
+
+        .follow {
+          color: #0095f6;
+          background-color: #fafafa;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}
