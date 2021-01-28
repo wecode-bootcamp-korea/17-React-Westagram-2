@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./Login.scss";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 
 import "../../../Styles/reset.scss";
 import "../../../Styles/common.scss";
@@ -14,6 +14,10 @@ class Login extends Component {
     super(props);
     this.state = { value: "" };
   }
+
+  goToMain = () => {
+    this.props.history.push("/main-yoojin");
+  };
 
   handleIdInput = (event) => {
     this.setState({
@@ -57,11 +61,13 @@ class Login extends Component {
               onChange={this.handlePwInput}
               value={this.state.pwValue}
             />
-            <Link to="/main-yoojin">
-              <button className={this.state.buttonChange} type="button">
-                Log In
-              </button>
-            </Link>
+            <button
+              className={this.state.buttonChange}
+              type="button"
+              onClick={this.goToMain}
+            >
+              Log In
+            </button>
           </div>
           <div className="orContainer">
             <div className="left"></div>
@@ -91,4 +97,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default withRouter(Login);

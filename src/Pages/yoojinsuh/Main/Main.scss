@@ -224,7 +224,8 @@ main {
         justify-content: space-between;
         margin-left: 20px;
 
-        .commentsContainer {
+        .commentsContainer,
+        .textbox {
           list-style-type: none;
 
           li {

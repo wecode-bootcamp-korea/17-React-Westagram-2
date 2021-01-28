@@ -1,5 +1,6 @@
 import React from "react";
 import "./Main.scss";
+//import Comment from "./Comments"
 
 import "../../../Styles/reset.scss";
 import "../../../Styles/common.scss";
@@ -17,6 +18,44 @@ import suggest2 from "../../../images/yoojin/main/suggest2.jpeg";
 import suggest3 from "../../../images/yoojin/main/suggest3.jpeg";
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      comment: "",
+      commentList: [],
+    };
+  }
+
+  comment = (event) => {
+    this.setState({
+      comment: event.target.value,
+    });
+  };
+
+  commentList = (event) => {
+    this.state.commentList.push({ text: this.state.comment });
+    this.setState({ comment: "" });
+    event.preventDefault();
+  };
+  //   this.setState({
+  //     commentList: this.state.commentList.concat({
+  //       num: this.num,
+  //       comment: this.state.comment,
+  //     }),
+  //     comment: "";
+  //   });
+  //   this.num += 1;
+  // }
+
+  //   let commentList = this.state.commentList;
+  //   commentList = commentList.push(this.state.comment);
+
+  //   this.setState({
+  //     comment: "",
+  //     commentList: [],
+  //   });
+  // };
+
   render() {
     return (
       <div>
@@ -96,7 +135,7 @@ class Main extends React.Component {
                       <i
                         className="far fa-heart"
                         id="commentHeart"
-                        onclick="fillHeartForComment()"
+                        // onclick="fillHeartForComment()"
                       ></i>
                     </li>
                     <li>
@@ -107,21 +146,45 @@ class Main extends React.Component {
                       <i
                         className="far fa-heart"
                         id="commentHeart"
-                        onclick="fillHeartForComment()"
+                        // onclick="fillHeartForComment()"
                       ></i>
                     </li>
+                  </ul>
+                  <ul className="textbox">
+                    {this.state.commentList.map((e) => {
+                      return (
+                        <li>
+                          <div>
+                            <span className="userAccount">hi_yoojins</span>
+                            <span>{e.text}</span>
+                          </div>
+                          <i
+                            className="far fa-heart"
+                            id="commentHeart"
+                            // onclick="fillHeartForComment()"
+                          ></i>
+                        </li>
+                      );
+                    })}
                   </ul>
                   <p>10 HOURS AGO</p>
                 </div>
               </section>
             </article>
-            <form className="addComment" onsubmit="return false">
+            <form className="addComment" onSubmit="return false">
               <input
                 className="inputComment"
                 type="text"
                 placeholder="Add a comment"
+                onChange={this.comment}
+                value={this.state.comment}
               />
-              <input className="inputSubmit" value="Post" type="submit" />
+              <input
+                className="inputSubmit"
+                value="Post"
+                type="submit"
+                onClick={this.commentList}
+              />
             </form>
           </div>
           <div className="main-right">
