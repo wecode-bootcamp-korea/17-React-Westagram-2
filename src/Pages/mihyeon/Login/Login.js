@@ -4,9 +4,25 @@ import "./Login.scss"
 
 
 class Login extends React.Component {
-    goToValidate = () => {
-        this.props.history.push("/main-miheyon")
+
+    state = {
+        id: '',
+        password: '',
+        validate: false
     }
+
+    handleId = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+    hanldePassword = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+
 
 
     render() {
@@ -18,9 +34,9 @@ class Login extends React.Component {
                         <h1>Westagram</h1>
 
                         <div className="input_container">
-                            <input className="input_id" type="text" placeholder="전화번호, 사용자 이름 또는 이메일" />
-                            <input className="input_password" type="password" placeholder="비밀번호" />
-                            <input className="login_button" type="button" value="로그인" onClick={this.goToValidate} />
+                            <input className="input_id" type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일" value={this.state.id} onChange={this.handleId} />
+                            <input className="input_password" type="password" name="password" placeholder="비밀번호" value={this.state.password} onChange={this.hanldePassword} onKeyPress={this.onKeyPress} />
+                            <input className="login_button" type="button" value="로그인" />
                         </div>
 
                         <div className="or_container">
@@ -54,7 +70,7 @@ class Login extends React.Component {
                                 href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D252CCB11-1A79-40CC-AB09-E55D439CD8BB%26utm_content%3Dlo%26utm_medium%3Dbadge"><img
                                     alt="Google Play에서 이용 가능" className="googleplay_icon"
                                     src="https://www.instagram.com/static/images/appstore-install-badges/badge_android_korean-ko.png/f155b664a93b.png" /></a>
-                        </div>
+                        </div>op-
                     </div>
 
                 </main>

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import img from "../../../images/mihyeon/Main/SIA.jpg"
 import "./Main.scss";
 
 
