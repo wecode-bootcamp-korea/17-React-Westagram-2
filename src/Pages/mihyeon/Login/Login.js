@@ -30,7 +30,7 @@ class Login extends React.Component {
                         <div className="input_container">
                             <input className="input_id" type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일" value={this.state.id} onChange={this.handleChange} />
                             <input className="input_password" type="password" name="password" placeholder="비밀번호" value={this.state.password} onChange={this.handleChange} onKeyPress={this.onKeyPress} />
-                            <input className="login_button" type="button" value="로그인" onClick={this.goToValidate} style={{ opacity: this.state.opacity }} />
+                            <input className="login_button" type="button" value="로그인" style={{ opacity: this.state.opacity }} />
                         </div>
 
                         <div className="or_container">
