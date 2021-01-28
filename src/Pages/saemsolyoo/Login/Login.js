@@ -3,10 +3,32 @@ import "./Login.scss";
 import { withRouter } from "react-router-dom";
 
 class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      id: "",
+      pw: "",
+    };
+  }
+
   goToMain = () => {
     this.props.history.push("/main-saemsol");
-    console.log(this.props);
-    console.log(this.props.history);
+  };
+
+  handleIdInput = (e) => {
+    const userId = e.target.value;
+
+    this.setState({
+      id: userId,
+    });
+  };
+
+  handlePwInput = (e) => {
+    const userPw = e.target.value;
+
+    this.setState({
+      pw: userPw,
+    });
   };
 
   render() {
@@ -20,12 +42,14 @@ class Login extends Component {
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               required
+              onChange={this.handleIdInput}
             />
             <input
               className="input-pw"
               type="password"
               placeholder="비밀번호"
               required
+              onChange={this.handlePwInput}
             />
             <a onClick={this.goToMain}>
               <button className="login-btn" type="button">
