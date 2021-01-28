@@ -8,6 +8,7 @@ class Login extends Component {
     this.state = {
       id: "",
       pw: "",
+      validation: true,
     };
   }
 
@@ -15,20 +16,39 @@ class Login extends Component {
     this.props.history.push("/main-saemsol");
   };
 
+  validation = () => {
+    const idCondition = this.state.id.includes("@");
+    const pwCondition = this.state.pw.length > 4;
+
+    idCondition && pwCondition
+      ? this.setState({ validation: false })
+      : this.setState({ validation: true });
+  };
+
   handleIdInput = (e) => {
     const userId = e.target.value;
-
-    this.setState({
-      id: userId,
-    });
+    console.log(`앞 : ${userId}`);
+    this.setState(
+      {
+        id: userId,
+      }
+      // () => {
+      //   this.validation();
+      // }
+    );
   };
 
   handlePwInput = (e) => {
     const userPw = e.target.value;
 
-    this.setState({
-      pw: userPw,
-    });
+    this.setState(
+      {
+        pw: userPw,
+      }
+      // () => {
+      //   this.validation();
+      // }
+    );
   };
 
   render() {
@@ -36,7 +56,7 @@ class Login extends Component {
       <div className="login-page">
         <section className="log-in">
           <h1>Westagram</h1>
-          <form className="login-form">
+          <form className="login-form" onKeyUp={this.validation}>
             <input
               className="input-id"
               type="text"
@@ -52,7 +72,11 @@ class Login extends Component {
               onChange={this.handlePwInput}
             />
             <a onClick={this.goToMain}>
-              <button className="login-btn" type="button">
+              <button
+                className="login-btn"
+                type="button"
+                disabled={this.state.validation}
+              >
                 로그인
               </button>
             </a>
