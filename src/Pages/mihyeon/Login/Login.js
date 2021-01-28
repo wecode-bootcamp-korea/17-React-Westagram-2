@@ -8,22 +8,16 @@ class Login extends React.Component {
     state = {
         id: '',
         password: '',
-        validate: false
+        opacity: "0.3"
     }
 
-    handleId = (e) => {
+    handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
+        const validation = this.state.id.indexOf("@") && this.state.password >= 5
+        validation ? this.setState({ opacity: "1" }) : this.setState({ opacity: "0.3" });
     }
-    hanldePassword = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }
-
-
-
 
     render() {
         return (
@@ -34,9 +28,9 @@ class Login extends React.Component {
                         <h1>Westagram</h1>
 
                         <div className="input_container">
-                            <input className="input_id" type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일" value={this.state.id} onChange={this.handleId} />
-                            <input className="input_password" type="password" name="password" placeholder="비밀번호" value={this.state.password} onChange={this.hanldePassword} onKeyPress={this.onKeyPress} />
-                            <input className="login_button" type="button" value="로그인" />
+                            <input className="input_id" type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일" value={this.state.id} onChange={this.handleChange} />
+                            <input className="input_password" type="password" name="password" placeholder="비밀번호" value={this.state.password} onChange={this.handleChange} onKeyPress={this.onKeyPress} />
+                            <input className="login_button" type="button" value="로그인" onClick={this.goToValidate} style={{ opacity: this.state.opacity }} />
                         </div>
 
                         <div className="or_container">
