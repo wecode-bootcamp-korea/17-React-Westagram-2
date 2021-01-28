@@ -1,13 +1,52 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 
-class Login extends Component {
-    render() {
-        return (
-            <div>
+import '../../../Styles/reset.scss';
+import '../../../Styles/common.scss';
+import './Login.scss';
 
-            </div>
-        );
+import westagramLogo from '../../../images/saranglee/Login/westagramLogo.svg';
+
+class LoginSarang extends Component {
+  constructor() {
+    super();
+    this.state = {
+      idValue: '',
+      pwValue: ''
     }
+  }
+
+  handleIdInput = (event) => {
+    this.setState({
+      idValue: event.target.value
+    });
+  }
+
+  handlePwInput = (event) => {
+    this.setState({
+      pwValue: event.target.value
+    })
+  }
+
+  goToMain = () => {
+    this.props.history.push('/main-sarang')
+  }
+
+  render() {
+    return (
+      <main className="LoginSarang">
+        <div className="logo-login-wrap">
+          <img className="logo-img" alt="Westagram Logo" src={ westagramLogo } />
+          <div className="login-container">
+            <input className="id-input" onChange={this.handleIdInput} type="text" placeholder="전화번호, 사용자 이름 또는 이메일" />
+            <input className="pw-input" onChange={this.handlePwInput} type="password" placeholder="비밀번호" />
+            <button className="login-btn disabled" onClick={this.goToMain}>로그인</button>
+          </div>
+        </div>
+        <a className="forgot-pw" href="https://www.instagram.com/accounts/password/reset">비밀번호를 잊으셨나요?</a>
+      </main>
+    );
+  }
 }
 
-export default Login;
+export default withRouter(LoginSarang);

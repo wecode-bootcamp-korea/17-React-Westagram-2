@@ -1,0 +1,387 @@
+.MainSarang {
+  background-color:#fafafa;
+
+  * {
+    box-sizing: border-box;
+    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  *:focus {
+    outline: none;
+  }
+  
+  a {
+    text-decoration: inherit;
+    color: inherit;
+  }
+  
+  .img-small {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .img-medium {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .img-large {
+    width: 48px;
+    height: 48px;
+  }
+
+  .btn {
+    margin: none;
+    padding: none;
+    background-color: transparent;
+    border: none;
+  }
+
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 64px;
+    background-color: #fff;
+    border-bottom: 1px solid #dbdbdb;
+    .nav-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 975px;
+      padding: 0 20px;
+      .logo-container {
+        display: flex;
+        align-items: center;
+        .line {
+          width: 1px;
+          height: 24px;
+          margin: 0 14px;
+          background-color: #000;
+        }
+  
+        .logo-img {
+          width: 90px;
+          height: 34px;
+          padding-top: 6px;
+        }
+      }
+  
+      .instagram-icon, .nav-icons img {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  
+    .search-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      .search {
+        width: 215px;
+        height: 28px;
+        margin: 0 20px;
+        background-color: #fafafa;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+      }
+  
+      .search-placeholder {
+        position: absolute;
+        color: #8e8e8e;
+        .search-icon {
+          width: 10px;
+          height: 10px;
+        }
+      }
+
+      .search-placeholder span {
+        margin-left: 4px;
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  
+    .nav-icons {
+      display: flex;
+      align-items: center;
+      .heart-icon, .profile-icon {
+        margin-left: 24px;
+      }
+    }
+  }
+  
+  main {
+    display: flex;
+    position: relative;
+    width: 935px;
+    margin: auto;
+    padding-top: 94px;
+    .user-id {
+      padding-bottom: 4px;
+      font-weight: 600;
+    }
+
+    .user-id, .likes-users {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .user-profile-img {
+      border: 1px solid #dbdbdb;
+      border-radius: 50%;
+    }
+  
+    .feeds {
+      display: block;
+      max-width: 616px;
+      margin-right: 28px;
+      .feed {
+        width: 100%;
+        margin-bottom: 60px;
+        background-color: #fff;
+        border: 1px solid #dbdbdb;
+        border-radius: 3px;
+        .feed-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 60px;
+          padding: 0 16px;
+          border-bottom: 1px solid #dbdbdb;
+          .feed-link {
+            display: flex;
+            align-items: center;
+            .feed-user-info {
+              display: flex;
+              flex-direction: column;
+              margin-left: 14px;
+              .user-location {
+                margin-top: 2px;
+                font-size: 12px;
+                font-weight: 400;
+              }
+            }
+          }
+  
+          .more-icon {
+            width: 40px;
+            height: 40px;
+            .more-icon-img {
+              width: 16px;
+              height: 16px;
+              color: #262626;
+            }
+          }
+        }
+  
+        .feed-img {
+          width: 100%;
+        }
+  
+        .feed-icons {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 40px;
+          padding: 0 8px;
+        }
+        
+        .feed-icons button {
+          width: 40px;
+          height: 40px;
+          padding: 8px;
+          background-color: transparent;
+          border: none;
+        }
+        
+        .feed-icons img {
+          width: 24px;
+          height: 24px;
+        }
+  
+        .likes-num, .feed-content, .comment-written, .time {
+          display: flex;
+          justify-content: column;
+          align-items: center;
+          margin-bottom: 4px;
+          padding: 0 16px;
+        }
+  
+        .likes-num p, .feed-content p, .comment-container p {
+          padding-left: 5px;
+          font-size: 14px;  
+        }
+  
+        .likes-num {
+          margin-bottom: 8px;
+          font-size: 14px;
+          font-weight: 400;
+        }
+
+        .likes-users {
+          margin: inherit;
+          padding: inherit;
+        }
+  
+        .view-more {
+          color: #8e8e8e;
+        }
+  
+        .comment-written {
+          display: flex;
+          align-items: center;
+          .comment-text {
+            font-size: 12px;
+          }
+        }
+  
+        .time {
+          margin: 10px 0;
+          font-size: 12px;
+          color: #8e8e8e;
+        }      
+  
+        .comment {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          height: 56px;
+          padding: 16px;
+          border-top: 1px solid #dbdbdb;
+          .comment-input {
+            width: 100%;
+            border: none;
+          }
+          
+          .comment-submit {
+            min-width: fit-content;
+            font-weight: 600;
+            color: #0095f6;
+          }
+          
+          .comment-submit:disabled {
+            opacity: 0.3;
+          }
+        }
+      }
+    }
+  
+    .wrap-main-right {
+      width: 293px;
+      .main-right {
+        position: fixed;
+        width: 293px;
+        .my-profile {
+          display: flex;
+          align-items: center;
+          margin-bottom: 20px;
+        }
+  
+        .my-profile .user-id {
+          padding-left: 16px;
+        }
+  
+        .stories, .recommendation {
+          display: block;
+          width: 100%;
+          max-height: 300px;
+          margin-top: 10px;
+          padding: 16px 16px 0 16px;
+          background-color: #fff;
+          border: 1px solid #dbdbdb;
+          border-radius: 3px;
+        }
+        
+        .aside-title-container {
+          display: flex;
+          justify-content: space-between;
+          .aside-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #8e8e8e;
+          }
+        
+          .show-all {
+            font-size: 14px;
+            font-weight: 600;
+            color: #262626;
+          }
+        }
+        
+        .story, .recommended-account {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          margin: 14px 0;
+        }
+  
+        .story img {
+          position: absolute;
+        }
+  
+        .img-user-info {
+          display: inline-flex;
+          align-items: center;
+        }
+  
+        .follow {
+          color: #0095f6;
+          font-weight: 600;
+        }
+        
+        .aside-user-info {
+          font-size: 12px;
+          font-weight: 400;
+          color: #8e8e8e;
+        }
+  
+        .aside-img {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: 40px;
+          height: 40px;
+          .story-border {
+            width: 100%;
+            height: 100%;
+            border: 2px solid #ff0000;
+            border-radius: 50%;
+          }
+        }
+  
+        .user-id-info {
+          display: flex;
+          flex-direction: column;
+          margin-left: 8px;
+          font-size: 14px;
+        }
+      }
+  
+      footer {
+        margin-top: 16px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #c7c7c7;
+        .language {
+          padding: 0;
+          font-size: 12px;
+          color: #c7c7c7;
+          background-color: transparent;
+          border: none;
+        }
+        
+        .copyright {
+          margin-top: 24px;
+        }
+      }
+    }
+  }
+}
