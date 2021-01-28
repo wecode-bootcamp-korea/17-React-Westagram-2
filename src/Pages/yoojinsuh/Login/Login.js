@@ -27,12 +27,20 @@ class Login extends Component {
     });
   };
 
+  loginKeyup = () => {
+    this.state.idValue.includes("@") && this.state.pwValue.length > 5
+      ? this.setState({ buttonChange: "darkBtn" })
+      : this.setState({
+          buttonChange: "lightBtn",
+        });
+  };
+
   render() {
     return (
       <div className="body">
         <div className="loginContainer">
           <h1>Westagram</h1>
-          <div className="inputContainer">
+          <div className="inputContainer" onKeyUp={this.loginKeyup}>
             <input
               className="id"
               name="idInput"
@@ -50,7 +58,7 @@ class Login extends Component {
               value={this.state.pwValue}
             />
             <Link to="/main-yoojin">
-              <button className="loginBtn" type="button">
+              <button className={this.state.buttonChange} type="button">
                 Log In
               </button>
             </Link>
