@@ -3,13 +3,13 @@ import "./CommentComp.scss";
 
 class CommentComp extends Component {
   render() {
-    const { index, user, comment, key } = this.props;
+    const { user, comment, key } = this.props;
     console.log(this.props);
     return (
       <div className="CommentComp">
         <li>
           <div>
-            <span className="userAccount" id={index}>
+            <span className="userAccount" id={key}>
               {user}
             </span>
             <span>{comment}</span>

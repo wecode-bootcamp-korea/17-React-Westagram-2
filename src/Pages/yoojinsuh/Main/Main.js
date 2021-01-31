@@ -1,6 +1,7 @@
 import React from "react";
 import "./Main.scss";
 import CommentComp from "../Component/CommentComp";
+
 //import Comment from "./Comments"
 
 import "../../../Styles/reset.scss";
@@ -22,6 +23,10 @@ class Main extends React.Component {
   constructor() {
     super(); //무조건 있어야한다.
     this.state = {
+      index: 20210131,
+      heart: true,
+      btnColor: true,
+      follow: true,
       //초기 세팅
       comment: "", //comment를 string형태로 비워놓고
       commentList: [], //comment를 모아둘 commentList를 배열 형태로 비워둔다.
@@ -38,6 +43,13 @@ class Main extends React.Component {
     });
   };
 
+  postKeyup = () => {
+    if (this.state.comment) {
+      this.setState({ btnColor: false });
+    } else {
+      this.setState({ btnColor: true });
+    }
+  };
   //원래 push를 이용해서 댓글을 달아봤는데 원본을 건드리는 push보다 "추가"형식으로 원본을 훼손시키지않는 concat을 써야한다.
 
   // concat 이용해서 댓글 달기
@@ -86,17 +98,30 @@ class Main extends React.Component {
   };
 
   //댓글 삭제 기능...왜 안될까.. 더 고민해보자.
-  // deleteComment = (index) => {
-  //   const remainedComment = this.state.commentList.filter(
-  //     (item) => item.index !== index
-  //   );
-  //   this.setState({
-  //     commentList: remainedComment,
-  //   });
-  // };
+  deleteComment = (index) => {
+    const remainedComment = this.state.commentList.filter(
+      (comment) => comment.index !== index
+    );
+    this.setState({
+      commentList: remainedComment,
+    });
+  };
+
+  // like버튼에 효과주기 ~~
+  fillHeart = (e) => {
+    this.setState({
+      heart: this.state.heart ? false : true,
+    });
+  };
+
+  followMe = (e) => {
+    this.setState({
+      follow: this.state.follow ? false : true,
+    });
+  };
 
   render() {
-    console.log(this.state.commentList);
+    console.log(this.deleteComment);
     return (
       <div>
         <div className="navbar">
@@ -147,11 +172,7 @@ class Main extends React.Component {
               <img className="mainImage" alt="dobie" src={dobie} />
               <footer>
                 <div className="footerNav">
-                  <i
-                    className="far fa-heart"
-                    id="footerHeart"
-                    onClick="fillHeartForFooter()"
-                  ></i>
+                  <i className="far fa-heart" id="footerHeart"></i>
                   <i className="far fa-comment"></i>
                   <i className="far fa-paper-plane"></i>
                 </div>
@@ -179,8 +200,10 @@ class Main extends React.Component {
                         ></i>
                         <i
                           className="far fa-heart"
-                          id="commentHeart"
-                          // onclick="fillHeartForComment()"
+                          id={
+                            !this.state.heart ? "filledHeart" : "commentHeart"
+                          }
+                          onClick={this.fillHeart}
                         ></i>
                       </div>
                     </li>
@@ -197,28 +220,58 @@ class Main extends React.Component {
                         ></i>
                         <i
                           className="far fa-heart"
-                          id="commentHeart"
-                          // onclick="fillHeartForComment()"
+                          id={
+                            !this.state.heart ? "filledHeart" : "commentHeart"
+                          }
+                          onClick={this.fillHeart}
                         ></i>
                       </div>
                     </li>
                   </ul>
 
                   <ul className="textbox">
-                    {this.state.commentList.map((item) => (
-                      <CommentComp
-                        user={item.user}
-                        comment={item.comment}
-                        index={item.index}
-                        key={item.key}
-                      ></CommentComp>
-                    ))}
+                    {this.state.commentList.map((commentText) => {
+                      return (
+                        // <CommentComp
+                        //   user={item.user}
+                        //   comment={item.comment}
+                        //   key={item.index}
+                        // ></CommentComp>
+                        <div className="CommentComp">
+                          <li key={commentText.index}>
+                            <div>
+                              <span className="userAccount">
+                                {commentText.user}
+                              </span>
+                              <span>{commentText.comment}</span>
+                            </div>
+                            <div className="heartAndTrash">
+                              <i
+                                className="far fa-trash-alt"
+                                onClick={() =>
+                                  this.deleteComment(commentText.index)
+                                }
+                              ></i>
+                              <i
+                                className="far fa-heart"
+                                id={
+                                  !this.state.heart
+                                    ? "filledHeart"
+                                    : "commentHeart"
+                                }
+                                onClick={this.fillHeart}
+                              ></i>
+                            </div>
+                          </li>
+                        </div>
+                      );
+                    })}
                   </ul>
                   <p>10 HOURS AGO</p>
                 </div>
               </section>
             </article>
-            <form className="addComment">
+            <form className="addComment" onKeyUp={this.postKeyup}>
               <input
                 className="inputComment"
                 type="text"
@@ -228,9 +281,9 @@ class Main extends React.Component {
                 onKeyUp={this.enterCommentList}
               />
               <input
-                className="inputSubmit"
+                className={!this.state.btnColor ? "darkBtn" : "inputSubmit"}
                 value="Post"
-                // type="submit"
+                type="button"
                 onClick={this.addComment}
               />
             </form>
@@ -257,7 +310,9 @@ class Main extends React.Component {
                       <p className="detail">Suggested for you</p>
                     </div>
                   </div>
-                  <p className="follow">Follow</p>
+                  <p className="follow" type="button" onClick={this.followMe}>
+                    {this.state.follow ? "Follow" : "Unfollow"}
+                  </p>
                 </div>
                 <div className="suggestProfile2">
                   <div className="imageAndName">
@@ -267,7 +322,9 @@ class Main extends React.Component {
                       <p className="detail">Followed by soonapshot + 2 more</p>
                     </div>
                   </div>
-                  <p className="follow">Follow</p>
+                  <p className="follow" type="button" onClick={this.followMe}>
+                    {this.state.follow ? "Follow" : "Unfollow"}
+                  </p>
                 </div>
                 <div className="suggestProfile3">
                   <div className="imageAndName">
@@ -277,7 +334,9 @@ class Main extends React.Component {
                       <p className="detail">New to Instagram</p>
                     </div>
                   </div>
-                  <p className="follow">Follow</p>
+                  <p className="follow" type="button" onClick={this.followMe}>
+                    {this.state.follow ? "Follow" : "Unfollow"}
+                  </p>
                 </div>
               </div>
             </div>

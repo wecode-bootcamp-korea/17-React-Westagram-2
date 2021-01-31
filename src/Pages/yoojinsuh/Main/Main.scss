@@ -190,6 +190,11 @@ main {
           i {
             margin-right: 20px;
           }
+
+          #footerHeart:hover {
+            font-weight: bold;
+            color: red;
+          }
         }
       }
 
@@ -248,6 +253,21 @@ main {
               justify-content: flex-end;
               margin-right: 20px;
 
+              i:hover {
+                font-weight: bold;
+                color: black;
+              }
+
+              #commentHeart:hover {
+                font-weight: bold;
+                color: red;
+              }
+
+              #filledHeart {
+                font-weight: bold;
+                color: red;
+              }
+
               i {
                 margin-left: 10px;
                 align-items: center;
@@ -287,12 +307,14 @@ main {
 
       .inputSubmit {
         width: 30px;
-        color: #c0dffd;
+        color: #b0cfee;
         border: none;
       }
 
       .darkBtn {
         color: #1c7ed6;
+        width: 30px;
+        border: none;
       }
     }
   }
