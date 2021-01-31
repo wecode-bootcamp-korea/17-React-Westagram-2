@@ -43,7 +43,7 @@ class LoginSarang extends Component {
       <main className="LoginSarang">
         <div className="logo-login-wrap">
           <img className="logo-img" alt="Westagram Logo" src={ westagramLogo } />
-          <div className="login-container" onChange={this.validation}>
+          <div className="login-container" onKeyPress={this.validation}>
             <input 
               className="id-input"
               onChange={this.handleIdInput}

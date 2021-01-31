@@ -15,6 +15,45 @@ import comment from '../../../images/saranglee/Main/comment.svg';
 import search from '../../../images/saranglee/Main/search.svg';
 
 class MainSarang extends Component {
+  constructor() {
+    super();
+    this.state = {
+      commentText: '',
+      btnOpacity: 0.3,
+      disableBtn: true,
+      commentList: []
+    }
+  }
+
+  writeComment = (e) => {
+    this.setState({
+      commentText: e.target.value,
+      btnOpacity: 1,
+      disableBtn: false
+    })
+    if (!this.state.commentText) {
+      this.setState({
+        btnOpacity: 0.3,
+        disableBtn: true
+      })
+    }
+  }
+
+  addComment = (e) => {
+    if (e.key === "Enter") {
+      this.submitComment();
+    }
+  }
+
+  submitComment = () => {
+    this.setState({
+      commentList: this.state.commentList.concat([this.state.commentText]),
+      commentText: '',
+      btnOpacity: 0.3,
+      disableBtn: true
+    })
+  }
+
   render() {
     return (
       <div className="MainSarang">
@@ -88,11 +127,30 @@ class MainSarang extends Component {
                     <a className="user-id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
                     <p className="comment-text">페페는 슬프다...</p>
                   </div>
+                  {this.state.commentList.map((comment, index) => {
+                  return <div key={index} className="comment-written">
+                    <a className="user-id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
+                    <p className="comment-text">{comment}</p>
+                  </div>
+                })}
                 </div>
-                  <p className="time">4시간 전</p>
+                <p className="time">4시간 전</p>
                 <div className="comment">
-                  <input className="comment-input" type="text" placeholder="댓글 달기..." />
-                  <button className="comment-submit btn" disabled>게시</button>
+                  <input 
+                    className="comment-input"
+                    value={this.state.commentText}
+                    onChange={this.writeComment}
+                    onKeyPress={this.addComment}
+                    type="text"
+                    placeholder="댓글 달기..."
+                  />
+                  <button
+                    className="comment-submit btn"
+                    onClick={this.submitComment}
+                    style={{ opacity: this.state.btnOpacity}}
+                    disabled={this.state.disableBtn}
+                  >게시
+                  </button>
                 </div>
               </div>
             </article>
