@@ -1,5 +1,6 @@
 import React from "react";
 import "./Main.scss";
+import CommentComp from "../Component/CommentComp";
 //import Comment from "./Comments"
 
 import "../../../Styles/reset.scss";
@@ -19,44 +20,83 @@ import suggest3 from "../../../images/yoojin/main/suggest3.jpeg";
 
 class Main extends React.Component {
   constructor() {
-    super();
+    super(); //무조건 있어야한다.
     this.state = {
-      comment: "",
-      commentList: [],
+      //초기 세팅
+      comment: "", //comment를 string형태로 비워놓고
+      commentList: [], //comment를 모아둘 commentList를 배열 형태로 비워둔다.
     };
   }
 
-  comment = (event) => {
+  // Main 페이지 안에서 댓글 달기
+  //input안에 들어가는 value를 따오기(?)
+  commentValue = (e) => {
+    //만약 event가 발생한다면; 여기서는 onChange '무언가가 변화했을때~
     this.setState({
-      comment: event.target.value,
+      //state를 업데이트한다.
+      comment: e.target.value, //원래는 ""로 비어있었던 comment를 e.target.value 즉 이벤트가 일어난 곳의 값을 집어 넣는다.
     });
   };
 
-  commentList = (event) => {
-    this.state.commentList.push({ text: this.state.comment });
-    this.setState({ comment: "" });
-    event.preventDefault();
+  //원래 push를 이용해서 댓글을 달아봤는데 원본을 건드리는 push보다 "추가"형식으로 원본을 훼손시키지않는 concat을 써야한다.
+
+  // concat 이용해서 댓글 달기
+  // addComment = () => { //click을 하면 발동하는 함수를 만들어주고
+  //   if (this.state.comment) { //만약 comment의 value가 있다면
+  //     this.setState({ //state를 업데이트 시켜준다.
+  //       commentList: this.state.commentList.concat({ //[]로 비어있던 commentList를 concat으로 comment를 집어 넣어줄껀데,
+  //         index: Date.now(), //가장 unique한 index인 현재 날짜를 지정해주고
+  //         user: "hi_yoojins", //댓글을 올리는 사람 = 나의 이름을 지정해주고
+  //         comment: this.state.comment, //위에서 input값에 들어있던 value를 comment로 저장해준다.
+  //       }),
+  //       comment: "", //state를 바꾼다음엔 (이미 commentList에 쓴 코멘트가 들어간 상태) 다시 comment를 ""로 비워준다.
+  //     });
+  //   }
+  // };
+
+  //spread가 concat보다 좋다는 얘기를 읽어서 한버 해보았다.
+  // spread 이용해서 댓글 달기
+  addComment = () => {
+    //click을 하면 발동하는 함수를 만들어주고
+    if (this.state.comment) {
+      //만약 comment의 value가 존재 한다면
+      this.setState({
+        //following을 업뎃할껀데
+        commentList: [
+          //원래 []로 비어있던 Comment리스트를 spread를 이용해서 채워넣어준다
+          ...this.state.commentList, //원래 있었던 commentList에
+          {
+            //이 객체를 집어넣어준다
+            index: Date.now(),
+            user: "hi_yoojins",
+            comment: this.state.comment,
+          },
+        ],
+        comment: "", //다시 comment를 ""로 비워주고
+      });
+    }
   };
-  //   this.setState({
-  //     commentList: this.state.commentList.concat({
-  //       num: this.num,
-  //       comment: this.state.comment,
-  //     }),
-  //     comment: "";
-  //   });
-  //   this.num += 1;
-  // }
 
-  //   let commentList = this.state.commentList;
-  //   commentList = commentList.push(this.state.comment);
+  enterCommentList = (e) => {
+    //event(여기서는 keyup)가 발생했을때
+    if (e.key === "Enter" && this.state.comment) {
+      //엔ㅌ터를 눌렀고 comment value값이 있을때
+      this.addComment(); //addComment함수를 발동시켜라~
+    }
+  };
 
+  //댓글 삭제 기능...왜 안될까.. 더 고민해보자.
+  // deleteComment = (index) => {
+  //   const remainedComment = this.state.commentList.filter(
+  //     (item) => item.index !== index
+  //   );
   //   this.setState({
-  //     comment: "",
-  //     commentList: [],
+  //     commentList: remainedComment,
   //   });
   // };
 
   render() {
+    console.log(this.state.commentList);
     return (
       <div>
         <div className="navbar">
@@ -132,58 +172,66 @@ class Main extends React.Component {
                         <span className="userAccount">suukju___</span>
                         <span> How are y'all?!</span>
                       </div>
-                      <i
-                        className="far fa-heart"
-                        id="commentHeart"
-                        // onclick="fillHeartForComment()"
-                      ></i>
+                      <div className="heartAndTrash">
+                        <i
+                          className="far fa-trash-alt"
+                          // onClick={this.deleteComment}
+                        ></i>
+                        <i
+                          className="far fa-heart"
+                          id="commentHeart"
+                          // onclick="fillHeartForComment()"
+                        ></i>
+                      </div>
                     </li>
                     <li>
                       <div>
                         <span className="userAccount">soonapshot</span>
                         <span>I miss you, Dobie</span>
                       </div>
-                      <i
-                        className="far fa-heart"
-                        id="commentHeart"
-                        // onclick="fillHeartForComment()"
-                      ></i>
+                      <div className="heartAndTrash">
+                        <i
+                          className="far fa-trash-alt"
+                          type="button"
+                          // onClick={this.deleteComment}
+                        ></i>
+                        <i
+                          className="far fa-heart"
+                          id="commentHeart"
+                          // onclick="fillHeartForComment()"
+                        ></i>
+                      </div>
                     </li>
                   </ul>
+
                   <ul className="textbox">
-                    {this.state.commentList.map((e) => {
-                      return (
-                        <li>
-                          <div>
-                            <span className="userAccount">hi_yoojins</span>
-                            <span>{e.text}</span>
-                          </div>
-                          <i
-                            className="far fa-heart"
-                            id="commentHeart"
-                            // onclick="fillHeartForComment()"
-                          ></i>
-                        </li>
-                      );
-                    })}
+                    {this.state.commentList.map((item) => (
+                      <CommentComp
+                        user={item.user}
+                        comment={item.comment}
+                        index={item.index}
+                        key={item.key}
+                      ></CommentComp>
+                    ))}
                   </ul>
                   <p>10 HOURS AGO</p>
                 </div>
               </section>
             </article>
-            <form className="addComment" onSubmit="return false">
+            <form className="addComment">
               <input
                 className="inputComment"
                 type="text"
                 placeholder="Add a comment"
-                onChange={this.comment}
                 value={this.state.comment}
+                onChange={this.commentValue}
+                onKeyUp={this.enterCommentList}
               />
               <input
                 className="inputSubmit"
                 value="Post"
-                type="submit"
-                onClick={this.commentList}
+                // type="submit"
+                onClick={this.addComment}
               />
             </form>
           </div>

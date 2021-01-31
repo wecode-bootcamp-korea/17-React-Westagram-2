@@ -68,7 +68,7 @@
 main {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   height: 1500px;
   background-color: #fafafa;
 
@@ -243,11 +243,17 @@ main {
               margin-right: 10px;
             }
 
-            i {
+            .heartAndTrash {
+              display: flex;
+              justify-content: flex-end;
               margin-right: 20px;
-              align-items: center;
-              color: darkgrey;
-              font-size: 13px;
+
+              i {
+                margin-left: 10px;
+                align-items: center;
+                color: darkgrey;
+                font-size: 13px;
+              }
             }
           }
         }
