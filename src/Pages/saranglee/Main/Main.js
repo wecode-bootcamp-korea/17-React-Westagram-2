@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import Comment from './Components/Comment/Comment'
+
 import '../../../Styles/reset.scss';
 import '../../../Styles/common.scss';
 import './Main.scss';
@@ -127,12 +129,7 @@ class MainSarang extends Component {
                     <a className="user-id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
                     <p className="comment-text">페페는 슬프다...</p>
                   </div>
-                  {this.state.commentList.map((comment, index) => {
-                  return <div key={index} className="comment-written">
-                    <a className="user-id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
-                    <p className="comment-text">{comment}</p>
-                  </div>
-                })}
+                  <Comment commentList={this.state.commentList} />
                 </div>
                 <p className="time">4시간 전</p>
                 <div className="comment">
