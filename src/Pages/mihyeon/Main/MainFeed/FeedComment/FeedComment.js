@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CommentList from '../CommentList/CommentList';
 import './FeedComment.scss';
 
 class FeedComment extends Component {
@@ -11,6 +12,19 @@ class FeedComment extends Component {
         }
     }
 
+    componentDidMount() {
+        fetch('http://localhost:3000/data_mihyeon/commentData.json', {
+            method: 'GET'
+        })
+            .then(res => res.json())
+            .then(data => {
+                this.setState({
+                    commentList: data,
+                });
+            });
+    }
+
+
     handleWriteComment = (e) => {
         e.preventDefault();
         this.setState({
@@ -20,12 +34,11 @@ class FeedComment extends Component {
 
     handleUpdateComment = (e) => {
         e.preventDefault();
-        console.log(e);
-
         const obj = {
             id: Date.now(),
-            user: "Purple_lol",
-            comment: this.state.comment,
+            "userName": "colorful_love",
+            "content": this.state.comment,
+            "isLiked": false
         }
 
         this.setState({
@@ -33,13 +46,6 @@ class FeedComment extends Component {
             comment: '',
         })
     }
-
-    // handleKeyPress = (e) => {
-    //     e.preventDefault();
-    //     if (e.key === "Enter") {
-    //         this.handleUpdateComment();
-    //     }
-    // }
 
     handleDeleteComment = (e) => {
         const target = this.state.commentList.filter((item) => {
@@ -51,14 +57,11 @@ class FeedComment extends Component {
     }
 
     render() {
-        //console.log(this.state.commentList)
         const { commentList } = this.state;
-        const commentLiElement = commentList.map((comment, index) => {
+        console.log(commentList);
+        const commentLiElement = commentList.map((comment) => {
             return (
-                <div key={index} className="each_comment_list" >
-                    <p className="commented_text">{comment.user} | {comment.comment}</p>
-                    <p className="commented_text_remove" id={comment.id} key={comment.id} onClick={this.handleDeleteComment}>삭제</p>
-                </div>
+                <CommentList key={comment.id} deleteEvent={this.handleDeleteComment} name={comment.userName} comment={comment.content} />
             )
         })
 
