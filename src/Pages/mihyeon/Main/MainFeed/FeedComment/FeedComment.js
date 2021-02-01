@@ -24,7 +24,6 @@ class FeedComment extends Component {
             });
     }
 
-
     handleWriteComment = (e) => {
         e.preventDefault();
         this.setState({
@@ -58,10 +57,9 @@ class FeedComment extends Component {
 
     render() {
         const { commentList } = this.state;
-        console.log(commentList);
         const commentLiElement = commentList.map((comment) => {
             return (
-                <CommentList key={comment.id} deleteEvent={this.handleDeleteComment} name={comment.userName} comment={comment.content} />
+                <CommentList key={comment.id} id={comment.id} deleteEvent={this.handleDeleteComment} name={comment.userName} comment={comment.content} />
             )
         })
 
