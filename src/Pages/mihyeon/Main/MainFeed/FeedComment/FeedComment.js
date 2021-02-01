@@ -34,8 +34,8 @@ class FeedComment extends Component {
     handleUpdateComment = (e) => {
         e.preventDefault();
         const obj = {
-            id: Date.now(),
-            "userName": "colorful_love",
+            "id": Date.now(),
+            "userName": "colorful",
             "content": this.state.comment,
             "isLiked": false
         }

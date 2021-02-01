@@ -7,7 +7,6 @@ import "./Main.scss";
 class Main extends React.Component {
 
     render() {
-
         return (
             <div className="main">
                 <Navigation />

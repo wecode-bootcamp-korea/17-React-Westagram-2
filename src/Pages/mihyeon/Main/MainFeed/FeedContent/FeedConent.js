@@ -4,9 +4,6 @@ import FeedComment from '../FeedComment/FeedComment';
 class FeedConent extends Component {
 
     state = {
-        mainId: 'Purple_World',
-        mainImage: 'https://images.unsplash.com/photo-1546930722-a1292ed9dee8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=696&q=80',
-        mainContent: ': Hello, Purful World',
         feedData: []
     }
 
@@ -23,7 +20,8 @@ class FeedConent extends Component {
     }
 
     render() {
-        const { mainId, mainContent, mainImage, feedData } = this.state;
+        const { feedData } = this.state;
+        const { mainData } = this.props;
 
         return (
             <div className="feed_container">
@@ -32,11 +30,11 @@ class FeedConent extends Component {
                         <article key={data.id} className="feed_contents">
                             <div className="feed_header">
                                 <img className="round_image"
-                                    src={mainImage}
+                                    src={mainData.mainImage}
                                     alt="profile" />
                                 <div>
-                                    <p>{mainId}</p>
-                                    <p>{mainContent}</p>
+                                    <p>{mainData.mainId}</p>
+                                    <p>{mainData.mainContent}</p>
                                 </div>
                                 <i className="fas fa-ellipsis-h settings_icon"></i>
                             </div>
@@ -54,12 +52,12 @@ class FeedConent extends Component {
                                 </div>
                                 <div className="feed_icons_container">
                                     <img className="round_image_small"
-                                        src={mainImage}
+                                        src={mainData.mainImage}
                                         alt="profile" />
                                     <span>Purple님 외 4명이 좋아합니다.</span>
                                 </div>
                                 <div className="feed_message_container">
-                                    <span className="feed_main_id">{mainId}</span>
+                                    <span className="feed_main_id">{mainData.mainId}</span>
                                     <span className="feed_message"> {data.content}</span>
                                 </div>
                                 <FeedComment />
