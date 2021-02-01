@@ -1,10 +1,34 @@
 import React, { Component } from "react";
+import Comments from "./Comments/Comments";
 
 class Feed extends Component {
+  //   constructor() {
+  //     super();
+  //     this.state = {
+  //       commentList: [],
+  //       commentValue: "",
+  //     };
+  //   }
+
+  //   componentDidMount() {
+  //     fetch("http://localhost:3000/data_saemsolyoo/commentData.json")
+  //       .then((res) => res.json())
+  //       .then((data) => {
+  //         console.log();
+  //         this.setState({
+  //           commentList: data,
+  //         });
+  //       });
+  //   }
+
   render() {
+    // console.log(this.state.commentList["feed01"]);
+    // console.log(this.state.commentList["feed02"]);
     return (
       <div>
         {this.props.feedDatas.map((feed) => {
+          //   const currentComment = this.state.commentList[feed.id];
+
           return (
             <article className="main-feed" id={feed.id}>
               <header>
@@ -34,7 +58,10 @@ class Feed extends Component {
                   <i className="far fa-bookmark"></i>
                 </div>
                 <span className="feed-likes">좋아요 {feed.likes}개</span>
-                <ul className="feed-comment-list">
+              </div>
+              {/* <Comments commentLists={this.state.commentList[feed.id]} /> */}
+              <Comments uploadTime={feed.time} />
+              {/* <ul className="feed-comment-list">
                   {feed.comments.map((comment) => {
                     return (
                       <li>
@@ -43,20 +70,7 @@ class Feed extends Component {
                       </li>
                     );
                   })}
-                </ul>
-                <span className="feed-uploaded-time">{feed.time}</span>
-              </div>
-
-              <form action="" className="feed-comment-form">
-                <input
-                  type="text"
-                  className="feed-comment-input"
-                  placeholder="댓글 달기..."
-                />
-                <button className="feed-comment-submit" type="submit" disabled>
-                  게시
-                </button>
-              </form>
+                </ul> */}
             </article>
           );
         })}
