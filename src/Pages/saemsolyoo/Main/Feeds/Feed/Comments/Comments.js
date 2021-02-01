@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Comment from "./Comment/Comment";
 import "./Comments.scss";
 
 class Comments extends Component {
@@ -66,14 +67,7 @@ class Comments extends Component {
     return (
       <div className="Comments">
         <ul className="feed-comment-list">
-          {commentList.map((comment) => {
-            return (
-              <li key={comment.id}>
-                <a href="#">{comment.userName}</a>
-                <span>{comment.content}</span>
-              </li>
-            );
-          })}
+          <Comment commentList={commentList} />
         </ul>
         <span className="feed-uploaded-time">{this.props.uploadTime}</span>
         <form className="feed-comment-form">
