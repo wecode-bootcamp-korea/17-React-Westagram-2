@@ -16,8 +16,21 @@ class Feed extends Component {
       commentText: '',
       btnOpacity: 0.3,
       disableBtn: true,
-      commentList: []
+      commentList: [],
+      commentData: []
     }
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data_saranglee/commentData.json', {
+      method: 'GET'
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        commentData: res
+      })
+    })
   }
 
   writeComment = (e) => {
@@ -51,23 +64,25 @@ class Feed extends Component {
   }
 
   render() {
+    const { data } = this.props;
+    const { commentList, commentData } = this.state;
     return (
       <article className="feed">
               <div className="feed-info">
                 <div className="feed-link">
                   <a href="https://www.instagram.com/wecode_bootcamp/">
-                    <img className="user-profile-img img-medium" alt="User Profile" src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/55847260_327918481255327_5311724473169215488_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=RPhPMsYaoDQAX9134e0&tp=1&oh=88f7d25b48019ebda01d129e4e624bf3&oe=60391BD9" />
+                    <img className="user-profile-img img-medium" alt="User Profile" src={data.userImage} />
                   </a>
                   <div className="feed-user-info">
-                      <a className="user-id" href="https://www.instagram.com/tyler_spangler/">tired.dum</a>
-                      <a className="user-location" href="https://www.instagram.com/explore/locations/213941548/seattle-washington/">Seattle, Washington</a>
+                      <a className="user-id" href={data.userLink}>{data.userId}</a>
+                      <a className="user-location" href="https://www.instagram.com/explore/locations/213941548/seattle-washington/">{data.userLocation}</a>
                   </div>
                 </div>
                 <button className="more-icon btn">
                   <img className="more-icon-img" alt="Menu icon" src={ menu } />
                 </button>
               </div>
-              <img className="feed-img" alt="Feed" src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/125190533_283398749688957_4796822018880485278_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=hbL9TBqMwYIAX_qKHSc&tp=1&oh=0a0fb38780ccc11ae88c6008f031e5ec&oe=603BA339" />
+              <img className="feed-img" alt="Feed" src={data.feedImage} />
               <div className="feed-function">
                 <div className="feed-icons">
                   <div className = "feed-icons-left">
@@ -80,24 +95,28 @@ class Feed extends Component {
                   </button>
                 </div>
                 <div className="likes-num">
-                  <a href="https://www.instagram.com/illustration_festa/">
-                    <img className="user-profile-img img-small" alt="Profile" src="https://scontent-gmp1-1.cdninstagram.com/v/t51.2885-19/s320x320/74359821_545447859628744_8418376912249815040_n.jpg?_nc_ht=scontent-gmp1-1.cdninstagram.com&_nc_ohc=Kx4-_JVEGKYAX9rwBnF&tp=1&oh=14b864c11d0f16a131b850ceecb453a1&oe=6034FC22" />
+                  <a href={data.likeUserLink}>
+                    <img className="user-profile-img img-small" alt="Profile" src={data.likeUserImage} />
                   </a>
-                  <p><a className="user-id" href="https://www.instagram.com/illustration_festa/">illustration_festa</a>님<button className="likes-users btn">외 1033명</button>이 좋아합니다</p>
+                  <p><a className="user-id" href={data.likeUserLink}>{data.likeUser}</a>님<button className="likes-users btn">{data.likeUserNum}</button>이 좋아합니다</p>
                 </div>
                 <div className="feed-content">
-                  <a className="user-id" href="https://www.instagram.com/tyler_spangler/">tyler_spangler</a>
-                  <p>20% off my store today 🌈 link ...</p>
+                  <a className="user-id" href={data.userLink}>{data.userId}</a>
+                  <p>{data.feedText}</p>
                   <button className="view-more btn">더 보기</button>
                 </div>
                 <div className="comment-container">
-                  <div className="comment-written">
-                    <a className="user-id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
-                    <p className="comment-text">페페는 슬프다...</p>
-                  </div>
-                  <Comment commentList={this.state.commentList} />
+                  {commentData.map(comment => {
+                    return(
+                      <div className="comment-written">
+                        <a className="user-id" href={comment.userLink}>{comment.userId}</a>
+                        <p className="comment-text">{comment.content}</p>
+                      </div>
+                    );
+                  })}
+                  <Comment commentList={commentList} />
                 </div>
-                <p className="time">4시간 전</p>
+                <p className="time">{data.time}</p>
                 <div className="comment">
                   <input 
                     className="comment-input"

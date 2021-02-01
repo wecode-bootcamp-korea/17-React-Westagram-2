@@ -2,22 +2,18 @@
   {
     "id": 1,
     "userLink": "https://www.instagram.com/uirim_inn/",
-    "userId": "wecode",
-    "content": "Welcome to world best coding bootcamp!",
-    "isLiked": true
+    "userId": "tototatatu",
+    "time": "12시간 전"
   },
   {
     "id": 2,
     "userLink": "https://www.instagram.com/uirim_inn/",
     "userId": "joonsikyang",
-    "content": "Hi there.",
-    "isLiked": false
+    "time": "27분 전"
   },
   {
     "id": 3,
     "userLink": "https://www.instagram.com/uirim_inn/",
     "userId": "jayPark",
-    "content": "Hey.",
-    "isLiked": false
+    "time": "16분 전"
   }
-]

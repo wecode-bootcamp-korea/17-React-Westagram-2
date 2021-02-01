@@ -1,12 +1,13 @@
 .main {
   $bgColor: #fafafa;
   $border: 1px solid #dbdbdb;
-  background-color:$bgColor;
 
   %flex-center {
     display: flex;
     align-items: center;
   }
+
+  background-color:$bgColor;
 
   * {
     box-sizing: border-box;
@@ -177,28 +178,6 @@
           margin: 10px 0;
           font-size: 12px;
           color: #8e8e8e;
-        }      
-  
-        .comment {
-          @extend %flex-center;
-          justify-content: space-between;
-          height: 56px;
-          padding: 16px;
-          border-top: $border;
-
-          .comment-input {
-            width: 100%;
-            border: none;
-          }
-          
-          .comment-submit {
-            min-width: fit-content;
-            font-weight: 600;
-            color: #0095f6;
-            &:disabled {
-              opacity: 0.3;
-            }
-          }
         }
       }
     }

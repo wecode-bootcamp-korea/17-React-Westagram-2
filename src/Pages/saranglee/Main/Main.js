@@ -9,13 +9,35 @@ import '../../../Styles/common.scss';
 import './Main.scss';
 
 class MainSarang extends Component {
+  constructor() {
+    super();
+    this.state = {
+      feedData: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('http://localhost:3000/data_saranglee/feedData.json', {
+      method: 'GET'
+    })
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        feedData: res
+      })
+    })
+  }
+
   render() {
+    const { feedData } = this.state;
     return (
       <div className="main">
         <Nav />
         <main>
           <div className="feeds">
-            <Feed />
+            {feedData.map(feed => {
+              return <Feed data={feed} />;
+            })} 
           </div>
           <div className="wrap-main-right">
             <aside className="main-right">

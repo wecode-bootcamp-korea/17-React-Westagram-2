@@ -29,14 +29,7 @@
   body {
     background-color: $bgColor;
   }
-
-  .forgot_pw {
-    color: #00376b;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 400;
-  }
-
+  
   .logo_img{
     display: block;
     width: 175px;
@@ -78,5 +71,12 @@
         opacity: 0.3;
       }
     }
+  }
+
+  .forgot_pw {
+    color: #00376b;
+    text-align: center;
+    font-size: 12px;
+    font-weight: 400;
   }
 }
