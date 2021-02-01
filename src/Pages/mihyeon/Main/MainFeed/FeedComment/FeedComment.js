@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './FeedComment.scss';
 
 class FeedComment extends Component {
 
@@ -7,43 +8,56 @@ class FeedComment extends Component {
         this.state = {
             comment: '',
             commentList: [],
-            commentUser: 'thunder'
         }
-        this.commentRef = React.createRef();
-
     }
-    handleWriteComment = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
 
+    handleWriteComment = (e) => {
+        e.preventDefault();
+        this.setState({
+            comment: e.target.value,
+        });
     }
 
     handleUpdateComment = (e) => {
+        e.preventDefault();
+        console.log(e);
+
+        const obj = {
+            id: Date.now(),
+            user: "Purple_lol",
+            comment: this.state.comment,
+        }
+
         this.setState({
-            commentList: [...this.state.commentList, this.state.comment],
-            comment: ''
+            commentList: [...this.state.commentList, obj],
+            comment: '',
         })
-        console.log(this.state.commentList);
     }
+
+    // handleKeyPress = (e) => {
+    //     e.preventDefault();
+    //     if (e.key === "Enter") {
+    //         this.handleUpdateComment();
+    //     }
+    // }
+
     handleDeleteComment = (e) => {
-        const submitedRef = this.commentRef.current;
-        const target = parseInt(submitedRef.attributes["data-index"])
-        this.setState({
-            commentList: this.state.commentList.splice(target, 1)
+        const target = this.state.commentList.filter((item) => {
+            return item.id !== Number(e.target.id);
         })
-        //console.log(this.state.commentList);
-        //submitedRef.parentNode.remove();
-        //target.remove();
+        this.setState({
+            commentList: target,
+        })
     }
 
     render() {
-        const { commentUser, commentList } = this.state;
+        //console.log(this.state.commentList)
+        const { commentList } = this.state;
         const commentLiElement = commentList.map((comment, index) => {
             return (
-                <div key={index} className="comment_container" data-index={index}>
-                    <p>{commentUser} | {comment}</p>
-                    <p key={index} data-index={index} onClick={this.handleDeleteComment} ref={this.commentRef}>삭제</p>
+                <div key={index} className="each_comment_list" >
+                    <p className="commented_text">{comment.user} | {comment.comment}</p>
+                    <p className="commented_text_remove" id={comment.id} key={comment.id} onClick={this.handleDeleteComment}>삭제</p>
                 </div>
             )
         })
@@ -52,9 +66,9 @@ class FeedComment extends Component {
             <div className="comment_conatainer">
                 <div className="comment"> {commentLiElement}</div>
                 <div className="comment_line"></div>
-                <form className="comment_write_form" >
-                    <textarea aria-label="댓글 달기 " className="comment_input" name="comment" placeholder="댓글달기..." onChange={this.handleWriteComment} value={this.state.comment} ></textarea>
-                    <button className="comment_submit_button" type="button" onClick={this.handleUpdateComment}>게시</button>
+                <form className="comment_write_form">
+                    <input aria-label="댓글 달기 " className="comment_input" name="comment" placeholder="댓글달기..." onChange={this.handleWriteComment} value={this.state.comment}></input>
+                    <button className="comment_submit_button" onClick={this.handleUpdateComment} >게시</button>
                 </form>
             </div>
         );
