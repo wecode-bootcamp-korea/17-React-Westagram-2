@@ -2,33 +2,10 @@ import React, { Component } from "react";
 import Comments from "./Comments/Comments";
 
 class Feed extends Component {
-  //   constructor() {
-  //     super();
-  //     this.state = {
-  //       commentList: [],
-  //       commentValue: "",
-  //     };
-  //   }
-
-  //   componentDidMount() {
-  //     fetch("http://localhost:3000/data_saemsolyoo/commentData.json")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log();
-  //         this.setState({
-  //           commentList: data,
-  //         });
-  //       });
-  //   }
-
   render() {
-    // console.log(this.state.commentList["feed01"]);
-    // console.log(this.state.commentList["feed02"]);
     return (
       <div>
         {this.props.feedDatas.map((feed) => {
-          //   const currentComment = this.state.commentList[feed.id];
-
           return (
             <article className="main-feed" id={feed.id}>
               <header>
@@ -59,18 +36,8 @@ class Feed extends Component {
                 </div>
                 <span className="feed-likes">좋아요 {feed.likes}개</span>
               </div>
-              {/* <Comments commentLists={this.state.commentList[feed.id]} /> */}
+
               <Comments uploadTime={feed.time} />
-              {/* <ul className="feed-comment-list">
-                  {feed.comments.map((comment) => {
-                    return (
-                      <li>
-                        <a href="#">{comment.id}</a>
-                        <span>{comment.comment}</span>
-                      </li>
-                    );
-                  })}
-                </ul> */}
             </article>
           );
         })}
