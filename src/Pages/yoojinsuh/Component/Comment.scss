@@ -1,0 +1,42 @@
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3px;
+  margin-bottom: 5px;
+
+  .userAccount {
+    font-weight: bold;
+  }
+
+  span {
+    margin-right: 10px;
+  }
+
+  .heartAndTrash {
+    display: flex;
+    justify-content: flex-end;
+
+    #commentHeart:hover {
+      font-weight: bold;
+      color: red;
+    }
+
+    i:hover {
+      font-weight: bold;
+      color: black;
+    }
+
+    #filledHeart {
+      font-weight: bold;
+      color: red;
+    }
+
+    i {
+      margin-left: 10px;
+      align-items: center;
+      color: darkgrey;
+      font-size: 13px;
+    }
+  }
+}

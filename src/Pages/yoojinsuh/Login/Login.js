@@ -10,29 +10,23 @@ import playstore from "../../../images/yoojin/login/playstore.png";
 import appstore from "../../../images/yoojin/login/appstore.png";
 
 class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { value: "" };
+  constructor() {
+    super();
+    this.state = { id: "", password: "" };
   }
 
   goToMain = () => {
     this.props.history.push("/main-yoojin");
   };
 
-  handleIdInput = (event) => {
+  handleAllInput = (e) => {
     this.setState({
-      idValue: event.target.value,
-    });
-  };
-
-  handlePwInput = (event) => {
-    this.setState({
-      pwValue: event.target.value,
+      [e.target.name]: e.target.value,
     });
   };
 
   loginKeyup = () => {
-    this.state.idValue.includes("@") && this.state.pwValue.length > 5
+    this.state.id.includes("@") && this.state.password.length > 5
       ? this.setState({ buttonChange: "darkBtn" })
       : this.setState({
           buttonChange: "lightBtn",
@@ -47,19 +41,19 @@ class Login extends Component {
           <div className="inputContainer" onKeyUp={this.loginKeyup}>
             <input
               className="id"
-              name="idInput"
+              name="id"
               type="text"
               placeholder="Phone number, username, or email"
-              onChange={this.handleIdInput}
-              value={this.state.idValue}
+              onChange={this.handleAllInput}
+              value={this.state.id}
             />
             <input
               className="password"
-              name="pwInput"
+              name="password"
               type="password"
               placeholder="Password"
-              onChange={this.handlePwInput}
-              value={this.state.pwValue}
+              onChange={this.handleAllInput}
+              value={this.state.pw}
             />
             <button
               className={this.state.buttonChange}
