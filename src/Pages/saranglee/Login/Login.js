@@ -1,37 +1,38 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 
+import westagramLogo from '../../../images/saranglee/Login/westagramLogo.svg';
+
 import '../../../Styles/reset.scss';
 import '../../../Styles/common.scss';
 import './Login.scss';
 
-import westagramLogo from '../../../images/saranglee/Login/westagramLogo.svg';
-
 class LoginSarang extends Component {
-
   constructor() {
     super();
     this.state = {
       idValue: '',
       pwValue: '',
-      btnOpacity: 0.3
+      btnDisable: true
     }
   }
 
-  handleIdInput = (event) => {
+  handleInput = e => {
+    const { value, name } = e.target;
     this.setState({
-      idValue: event.target.value
+      [name]: value
     });
   }
 
-  handlePwInput = (event) => {
+  validation = e => {
+    const { idValue, pwValue } = this.state;
+    const isValid = idValue.includes('@') && pwValue.length >= 5;
     this.setState({
-      pwValue: event.target.value
-    });
-  }
-
-  validation = () => {
-    this.state.idValue.includes('@') && this.state.pwValue.length >= 5 ? this.setState({btnOpacity: 1}) : this.setState({btnOpacity: 0.3});
+      btnDisable: isValid ? false : true
+    })
+    if (isValid && e.key === 'Enter') {
+      this.goToMain();
+    }
   }
 
   goToMain = () => {
@@ -39,31 +40,37 @@ class LoginSarang extends Component {
   }
 
   render() {
+    const { btnDisable } = this.state;
+    const { validation, handleInput, goToMain } = this;
     return (
-      <main className="LoginSarang">
-        <div className="logo-login-wrap">
-          <img className="logo-img" alt="Westagram Logo" src={ westagramLogo } />
-          <div className="login-container" onKeyPress={this.validation}>
+      <main className="loginSarang">
+        <div className="logo_login_wrap">
+          <img className="logo_img" alt="Westagram Logo" src={ westagramLogo } />
+          <div className="login_container" onKeyPress={validation}>
             <input 
-              className="id-input"
-              onChange={this.handleIdInput}
+              className="id_input"
+              onChange={handleInput}
               type="text"
+              name="idValue"
               placeholder="전화번호, 사용자 이름 또는 이메일"
             />
             <input 
-              className="pw-input"
-              onChange={this.handlePwInput}
+              className="pw_input"
+              onChange={handleInput}
               type="password"
+              name="pwValue"
               placeholder="비밀번호"
             />
             <button 
-              style={{opacity: this.state.btnOpacity}} 
-              className="login-btn disabled" 
-              onClick={this.goToMain}>로그인
+              className="login_btn" 
+              onClick={goToMain}
+              disabled={btnDisable}
+            >
+              로그인
             </button>
           </div>
         </div>
-        <a className="forgot-pw" href="https://www.instagram.com/accounts/password/reset">비밀번호를 잊으셨나요?</a>
+        <a className="forgot_pw" href="https://www.instagram.com/accounts/password/reset">비밀번호를 잊으셨나요?</a>
       </main>
     );
   }

@@ -4,7 +4,6 @@ import './Comment.scss';
 
 class Comment extends Component {
   render() {
-    console.log(this.props)
     return (
       <>
       {this.props.commentList.map((comment, index) => {

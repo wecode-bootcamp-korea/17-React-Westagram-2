@@ -1,0 +1,10 @@
+$bg-color: #fafafa;
+$border: 1px solid #dbdbdb;
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  &:focus {
+    outline: none;
+  }
+}
