@@ -13,7 +13,7 @@
   border: $border;
   border-radius: 3px;
 
-  .feed-info {
+  .feed_info {
     @extend %flex-center;
     justify-content: space-between;
     width: 100%;
@@ -21,15 +21,15 @@
     padding: 0 16px;
     border-bottom: $border;
 
-    .feed-link {
+    .feed_link {
       @extend %flex-center;
       
-      .feed-user-info {
+      .feed_user_info {
         display: flex;
         flex-direction: column;
         margin-left: 14px;
 
-        .user-location {
+        .user_location {
           margin-top: 2px;
           font-size: 12px;
           font-weight: 400;
@@ -37,11 +37,11 @@
       }
     }
 
-    .more-icon {
+    .more_icon {
       width: 40px;
       height: 40px;
 
-      .more-icon-img {
+      .more_icon_img {
         width: 16px;
         height: 16px;
         color: #262626;
@@ -49,11 +49,11 @@
     }
   }
 
-  .feed-img {
+  .feed_img {
     width: 100%;
   }
 
-  .feed-icons {
+  .feed_icons {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -61,7 +61,7 @@
     padding: 0 8px;
   }
   
-  .feed-icons button {
+  .feed_icons button {
     width: 40px;
     height: 40px;
     padding: 8px;
@@ -69,42 +69,42 @@
     border: none;
   }
   
-  .feed-icons img {
+  .feed_icons img {
     width: 24px;
     height: 24px;
   }
 
-  .likes-num, .feed-content, .comment-written, .time {
+  .likes_num, .feed_content, .comment_written, .time {
     @extend %flex-center;
     justify-content: column;
     margin-bottom: 4px;
     padding: 0 16px;
   }
 
-  .likes-num p, .feed-content p, .comment-container p {
+  .likes_num p, .feed_content p, .comment_container p {
     padding-left: 5px;
     font-size: 14px;  
   }
 
-  .likes-num {
+  .likes_num {
     margin-bottom: 8px;
     font-size: 14px;
     font-weight: 400;
   }
 
-  .likes-users {
+  .likes_users {
     margin: inherit;
     padding: inherit;
   }
 
-  .view-more {
+  .view_more {
     color: #8e8e8e;
   }
 
-  .comment-written {
+  .comment_written {
     @extend %flex-center;
 
-    .comment-text {
+    .comment_text {
       font-size: 12px;
     }
   }
@@ -122,12 +122,12 @@
     padding: 16px;
     border-top: $border;
 
-    .comment-input {
+    .comment_input {
       width: 100%;
       border: none;
     }
     
-    .comment-submit {
+    .comment_submit {
       min-width: fit-content;
       font-weight: 600;
       color: #0095f6;

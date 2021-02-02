@@ -17,14 +17,14 @@
   background-color: #fff;
   z-index: 10;
 
-  .nav-container {
+  .nav_container {
     @extend %flex-center;
     justify-content: space-between;
     width: 975px;
     margin: auto;
     padding: 0 20px;
 
-    .logo-container {
+    .logo_container {
       @extend %flex-center;
 
       .line {
@@ -34,20 +34,20 @@
         background-color: #000;
       }
 
-      .logo-img {
+      .logo_img {
         width: 90px;
         height: 34px;
         padding-top: 6px;
       }
     }
 
-    .instagram-icon, .nav-icons img {
+    .instagram_icon, .nav_icons img {
       width: 22px;
       height: 22px;
     }
   }
 
-  .search-bar {
+  .search_bar {
     @extend %flex-center;
     justify-content: center;
     position: relative;
@@ -61,27 +61,27 @@
       border-radius: 3px;
     }
 
-    .search-placeholder {
+    .search_placeholder {
       position: absolute;
       color: #8e8e8e;
 
-      .search-icon {
+      .search_icon {
         width: 10px;
         height: 10px;
       }
     }
 
-    .search-placeholder span {
+    .search_placeholder span {
       margin-left: 4px;
       font-size: 14px;
       font-weight: 300;
     }
   }
 
-  .nav-icons {
+  .nav_icons {
     @extend %flex-center;
 
-    .heart-icon, .profile-icon {
+    .heart_icon, .profile_icon {
       margin-left: 24px;
     }
   }

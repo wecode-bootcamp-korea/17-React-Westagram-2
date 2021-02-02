@@ -7,9 +7,9 @@ class Comment extends Component {
     return (
       <>
       {this.props.commentList.map((comment, index) => {
-        return <div key={index} className="comment-written">
-          <a className="user-id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
-          <p className="comment-text">{comment}</p>
+        return <div key={index} className="comment_written">
+          <a className="user_id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
+          <p className="comment_text">{comment}</p>
         </div>
       })}
       </>

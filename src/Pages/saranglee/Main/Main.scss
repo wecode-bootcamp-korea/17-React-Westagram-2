@@ -22,17 +22,17 @@
     color: inherit;
   }
   
-  .img-small {
+  .img_small {
     width: 20px;
     height: 20px;
   }
   
-  .img-medium {
+  .img_medium {
     width: 32px;
     height: 32px;
   }
   
-  .img-large {
+  .img_large {
     width: 48px;
     height: 48px;
   }
@@ -51,17 +51,17 @@
     margin: auto;
     padding-top: 94px;
 
-    .user-id {
+    .user_id {
       padding-bottom: 4px;
       font-weight: 600;
     }
 
-    .user-id, .likes-users {
+    .user_id, .likes_users {
       font-size: 14px;
       font-weight: 600;
     }
 
-    .user-profile-img {
+    .user_profile_img {
       border: $border;
       border-radius: 50%;
     }
@@ -78,7 +78,7 @@
         border: $border;
         border-radius: 3px;
 
-        .feed-info {
+        .feed_info {
           @extend %flex-center;
           justify-content: space-between;
           width: 100%;
@@ -86,15 +86,15 @@
           padding: 0 16px;
           border-bottom: $border;
 
-          .feed-link {
+          .feed_link {
             @extend %flex-center;
             
-            .feed-user-info {
+            .feed_user_info {
               display: flex;
               flex-direction: column;
               margin-left: 14px;
 
-              .user-location {
+              .user_location {
                 margin-top: 2px;
                 font-size: 12px;
                 font-weight: 400;
@@ -102,11 +102,11 @@
             }
           }
   
-          .more-icon {
+          .more_icon {
             width: 40px;
             height: 40px;
 
-            .more-icon-img {
+            .more_icon_img {
               width: 16px;
               height: 16px;
               color: #262626;
@@ -114,11 +114,11 @@
           }
         }
   
-        .feed-img {
+        .feed_img {
           width: 100%;
         }
   
-        .feed-icons {
+        .feed_icons {
           display: flex;
           justify-content: space-between;
           width: 100%;
@@ -126,7 +126,7 @@
           padding: 0 8px;
         }
         
-        .feed-icons button {
+        .feed_icons button {
           width: 40px;
           height: 40px;
           padding: 8px;
@@ -134,42 +134,42 @@
           border: none;
         }
         
-        .feed-icons img {
+        .feed_icons img {
           width: 24px;
           height: 24px;
         }
   
-        .likes-num, .feed-content, .comment-written, .time {
+        .likes_num, .feed_content, .comment_written, .time {
           @extend %flex-center;
           justify-content: column;
           margin-bottom: 4px;
           padding: 0 16px;
         }
   
-        .likes-num p, .feed-content p, .comment-container p {
+        .likes_num p, .feed_content p, .comment_container p {
           padding-left: 5px;
           font-size: 14px;  
         }
   
-        .likes-num {
+        .likes_num {
           margin-bottom: 8px;
           font-size: 14px;
           font-weight: 400;
         }
 
-        .likes-users {
+        .likes_users {
           margin: inherit;
           padding: inherit;
         }
   
-        .view-more {
+        .view_more {
           color: #8e8e8e;
         }
   
-        .comment-written {
+        .comment_written {
           @extend %flex-center;
 
-          .comment-text {
+          .comment_text {
             font-size: 12px;
           }
         }
@@ -182,19 +182,19 @@
       }
     }
   
-    .wrap-main-right {
+    .wrap_main_right {
       width: 293px;
 
-      .main-right {
+      .main_right {
         position: fixed;
         width: 293px;
 
-        .my-profile {
+        .my_profile {
           @extend %flex-center;
           margin-bottom: 20px;
         }
   
-        .my-profile .user-id {
+        .my_profile .user_id {
           padding-left: 16px;
         }
   
@@ -209,24 +209,24 @@
           border-radius: 3px;
         }
         
-        .aside-title-container {
+        .aside_title_container {
           display: flex;
           justify-content: space-between;
 
-          .aside-title {
+          .aside_title {
             font-size: 14px;
             font-weight: 600;
             color: #8e8e8e;
           }
         
-          .show-all {
+          .show_all {
             font-size: 14px;
             font-weight: 600;
             color: #262626;
           }
         }
         
-        .story, .recommended-account {
+        .story, .recommended_account {
           @extend %flex-center;
           justify-content: space-between;
           width: 100%;
@@ -237,7 +237,7 @@
           position: absolute;
         }
   
-        .img-user-info {
+        .img_user_info {
           display: inline-flex;
           align-items: center;
         }
@@ -247,20 +247,20 @@
           font-weight: 600;
         }
         
-        .aside-user-info {
+        .aside_user_info {
           font-size: 12px;
           font-weight: 400;
           color: #8e8e8e;
         }
   
-        .aside-img {
+        .aside_img {
           @extend %flex-center;
           justify-content: center;
           position: relative;
           width: 40px;
           height: 40px;
 
-          .story-border {
+          .story_border {
             width: 100%;
             height: 100%;
             border: 2px solid #ff0000;
@@ -268,7 +268,7 @@
           }
         }
   
-        .user-id-info {
+        .user_id_info {
           display: flex;
           flex-direction: column;
           margin-left: 8px;
