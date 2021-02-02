@@ -5,7 +5,7 @@ import "./FeedContent.scss";
 class FeedConent extends Component {
 
     state = {
-        feedData: []
+        feedData: [],
     }
 
     componentDidMount() {
@@ -18,6 +18,10 @@ class FeedConent extends Component {
                     feedData: data
                 })
             })
+    }
+
+    handleHeart = (id) => {
+        console.log(id)
     }
 
     render() {
@@ -46,7 +50,7 @@ class FeedConent extends Component {
                             </div>
                             <div className="board_container">
                                 <div className="icons_contianer">
-                                    <i className="fas fa-heart"></i>
+                                    <i className="far fa-heart" id={data.id}> </i>
                                     <i className="far fa-comment"></i>
                                     <i className="fas fa-external-link-alt"></i>
                                     <i className="far fa-bookmark"></i>

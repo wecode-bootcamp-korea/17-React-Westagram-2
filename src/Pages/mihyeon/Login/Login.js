@@ -2,7 +2,6 @@ import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import "./Login.scss"
 
-
 class Login extends React.Component {
 
     state = {
@@ -16,7 +15,7 @@ class Login extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         });
-        this.state.id.indexOf("@") && this.state.password.length > 5 && this.setState({ iscolor: !this.state.iscolor });
+        this.state.id.indexOf("@") && this.state.password.length > 4 && this.setState({ iscolor: !this.state.iscolor });
     }
     goToValidate = (e) => {
         this.setState({

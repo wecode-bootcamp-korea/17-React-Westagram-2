@@ -60,6 +60,16 @@
     }
     .board_container{
         padding: 0px 10px 10px 10px;
+
+        #heart_bold{
+            font-weight: bold;
+            color: blueviolet;
+    
+        }
+        #heart_empty{
+            font-weight: lighter;
+            color:blueviolet ;
+        }
           /* icons container */
         .icons_contianer{
             display: flex;
@@ -67,9 +77,11 @@
                  i{
                     margin: 10px 15px 10px 0px;
                     font-size: 22px;
+                    
                     &:last-of-type{
                          margin-left: auto; 
     }
+ 
 }
 }
         .feed_icons_container{
