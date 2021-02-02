@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Comment from '../Comment/Comment'
 
-import './Feed.scss'
+import Comment from '../Comment/Comment';
 
 import menu from '../../../../../images/saranglee/Main/menu.svg';
 import heart from '../../../../../images/saranglee/Main/heart.svg';
@@ -9,12 +8,13 @@ import send from '../../../../../images/saranglee/Main/send.svg';
 import bookmark from '../../../../../images/saranglee/Main/bookmark.svg';
 import comment from '../../../../../images/saranglee/Main/comment.svg';
 
+import './Feed.scss';
+
 class Feed extends Component {
   constructor() {
     super();
     this.state = {
       commentText: '',
-      btnOpacity: 0.3,
       disableBtn: true,
       commentList: [],
       commentData: []
@@ -33,16 +33,17 @@ class Feed extends Component {
     })
   }
 
-  writeComment = (e) => {
+  writeComment = e => {
+    const { commentText } = this.state;
+    const { value } = e.target;
+
     this.setState({
-      commentText: e.target.value,
-      btnOpacity: 1,
+      commentText: value,
       disableBtn: false
     })
 
-    if (!this.state.commentText) {
+    if (!commentText) {
       this.setState({
-        btnOpacity: 0.3,
         disableBtn: true
       })
     }
@@ -55,19 +56,22 @@ class Feed extends Component {
   }
 
   submitComment = () => {
+    const { commentList, commentText } = this.state;
+
     this.setState({
-      commentList: this.state.commentList.concat([this.state.commentText]),
+      commentList: commentList.concat([commentText]),
       commentText: '',
-      btnOpacity: 0.3,
       disableBtn: true
     })
   }
 
   render() {
     const { data } = this.props;
-    const { commentList, commentData } = this.state;
+    const { commentList, commentData, commentText, disableBtn } = this.state;
+    const { writeComment, addComment, submitComment} = this;
+    
     return (
-      <article className="feed">
+      <article className="feed" key={data.id}>
         <div className="feed_info">
           <div className="feed_link">
             <a href="https://www.instagram.com/wecode_bootcamp/">
@@ -131,17 +135,16 @@ class Feed extends Component {
           <div className="comment">
             <input 
               className="comment_input"
-              value={this.state.commentText}
-              onChange={this.writeComment}
-              onKeyPress={this.addComment}
+              value={commentText}
+              onChange={writeComment}
+              onKeyPress={addComment}
               type="text"
               placeholder="댓글 달기..."
             />
             <button
               className="comment_submit btn"
-              onClick={this.submitComment}
-              style={{ opacity: this.state.btnOpacity}}
-              disabled={this.state.disableBtn}
+              onClick={submitComment}
+              disabled={disableBtn}
             >게시
             </button>
           </div>

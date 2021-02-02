@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import './Nav.scss';
-
 import westagramLogo from  '../../../../../images/saranglee/Main/westagramLogo.svg';
 import instagram from '../../../../../images/saranglee/Main/instagram.svg';
 import search from '../../../../../images/saranglee/Main/search.svg';
 
+import './Nav.scss';
+
 class Nav extends Component {
   render() {
     return (
-      <nav className="Nav">
+      <nav className="nav">
         <div className="nav_container">
           <div className="logo_container">
             <img className="instagram_icon" alt="Instagram Icon" src={ instagram } />

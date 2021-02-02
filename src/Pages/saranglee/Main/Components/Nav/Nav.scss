@@ -1,4 +1,4 @@
-.Nav {
+.nav {
   $bgColor: #fafafa;
   $border: 1px solid #dbdbdb;
 
@@ -45,44 +45,43 @@
       width: 22px;
       height: 22px;
     }
-  }
-
-  .search_bar {
-    @extend %flex-center;
-    justify-content: center;
-    position: relative;
-
-    .search {
-      width: 215px;
-      height: 28px;
-      margin: 0 20px;
-      background-color: $bgColor;
-      border: $border;
-      border-radius: 3px;
-    }
-
-    .search_placeholder {
-      position: absolute;
-      color: #8e8e8e;
-
-      .search_icon {
-        width: 10px;
-        height: 10px;
+    .search_bar {
+      @extend %flex-center;
+      justify-content: center;
+      position: relative;
+  
+      .search {
+        width: 215px;
+        height: 28px;
+        margin: 0 20px;
+        background-color: $bgColor;
+        border: $border;
+        border-radius: 3px;
+      }
+  
+      .search_placeholder {
+        position: absolute;
+        color: #8e8e8e;
+  
+        .search_icon {
+          width: 10px;
+          height: 10px;
+        }
+      }
+  
+      .search_placeholder span {
+        margin-left: 4px;
+        font-size: 14px;
+        font-weight: 300;
       }
     }
-
-    .search_placeholder span {
-      margin-left: 4px;
-      font-size: 14px;
-      font-weight: 300;
-    }
-  }
-
-  .nav_icons {
-    @extend %flex-center;
-
-    .heart_icon, .profile_icon {
-      margin-left: 24px;
+  
+    .nav_icons {
+      @extend %flex-center;
+  
+      .heart_icon, .profile_icon {
+        margin-left: 24px;
+      }
     }
   }
 }
