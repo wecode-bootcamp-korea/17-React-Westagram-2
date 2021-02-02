@@ -17,14 +17,14 @@ li {
     display: flex;
     justify-content: flex-end;
 
-    #commentHeart:hover {
-      font-weight: bold;
-      color: red;
-    }
-
     i:hover {
       font-weight: bold;
       color: black;
+    }
+
+    #commentHeart:hover {
+      font-weight: bold;
+      color: red;
     }
 
     #filledHeart {

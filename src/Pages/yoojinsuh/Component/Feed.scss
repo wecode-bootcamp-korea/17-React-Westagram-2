@@ -89,10 +89,24 @@
           margin-right: 20px;
         }
 
-        #footerHeart:hover {
+        #heartEmpty:hover {
           font-weight: bold;
           color: red;
         }
+
+        #heartFilled {
+          font-weight: bold;
+          color: red;
+        }
+
+        #heartEmpty {
+          color: black;
+        }
+      }
+
+      #bookmark:hover {
+        font-weight: bold;
+        color: black;
       }
     }
 

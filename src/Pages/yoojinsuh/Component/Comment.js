@@ -11,7 +11,7 @@ class Comment extends Component {
   }
 
   render() {
-    const { id, comment, deleteComment, fillHeart } = this.props;
+    const { id, comment, deleteComment } = this.props;
     return (
       <li key={id}>
         <div>
@@ -20,7 +20,7 @@ class Comment extends Component {
         </div>
         <div className="heartAndTrash">
           <i className="far fa-trash-alt" id={id} onClick={deleteComment}></i>
-          <i className="far fa-heart"></i>
+          <i className="far fa-heart" id="commentHeart"></i>
         </div>
       </li>
     );

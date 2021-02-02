@@ -6,10 +6,11 @@ class Feed extends Component {
   constructor() {
     super();
     this.state = {
-      index: 20210131,
+      id: 20210131,
       comment: "",
       commentList: [],
       btnColor: true,
+      heartFilled: false,
     };
   }
 
@@ -28,19 +29,19 @@ class Feed extends Component {
   };
   //원래 push를 이용해서 댓글을 달아봤는데 원본을 건드리는 push보다 "추가"형식으로 원본을 훼손시키지않는 concat을 써야한다.
 
-  //   concat 이용해서 댓글 달기
-  //   addComment = () => {
-  //     if (this.state.comment) {
-  //       this.setState({
-  //         commentList: this.state.commentList.concat({
-  //           index: Date.now(),
-  //           user: "hi_yoojins",
-  //           comment: this.state.comment,
-  //         }),
-  //         comment: "",
-  //       });
-  //     }
-  //   };
+  // concat 이용해서 댓글 달기
+  // addComment = () => {
+  //   if (this.state.comment) {
+  //     this.setState({
+  //       commentList: this.state.commentList.concat({
+  //         index: Date.now(),
+  //         user: "hi_yoojins",
+  //         comment: this.state.comment,
+  //       }),
+  //       comment: "",
+  //     });
+  //   }
+  // };
   // spread 이용해서 댓글달기
   addComment = (e) => {
     if (this.state.comment) {
@@ -48,7 +49,7 @@ class Feed extends Component {
         commentList: [
           ...this.state.commentList,
           {
-            index: Date.now(),
+            id: Date.now(),
             user: "hi_yoojins",
             comment: this.state.comment,
           },
@@ -66,20 +67,21 @@ class Feed extends Component {
     }
   };
 
-  // deleteComment = (e) => {
-  //   const remainedComment = this.state.commentList.filter((item) => {
-  //     return item.id !== Number(e.target.id);
-  //   });
-  //   this.setState({
-  //     commentList: remainedComment,
-  //   });
-  // };
+  deleteComment = (e) => {
+    const remainedComment = this.state.commentList.filter((item) => {
+      return item.id !== Number(e.target.id);
+    });
 
-  // fillHeart = () => {
-  //   this.setState({
-  //     heart: !this.state.heart ? false : true,
-  //   });
-  // };
+    this.setState({
+      commentList: remainedComment,
+    });
+  };
+
+  fillHeart = () => {
+    this.setState({
+      heartFilled: !this.state.heartFilled ? true : false,
+    });
+  };
 
   render() {
     const {
@@ -106,14 +108,14 @@ class Feed extends Component {
             <div className="footerNav">
               <i
                 className="far fa-heart"
-                id="footerHeart"
+                id={this.state.heartFilled ? "heartFilled" : "heartEmpty"}
                 onClick={this.fillHeart}
               ></i>
               <i className="far fa-comment"></i>
               <i className="far fa-paper-plane"></i>
             </div>
             <div className="footerSave">
-              <i className="far fa-bookmark"></i>
+              <i className="far fa-bookmark" id="bookmark"></i>
             </div>
           </footer>
           <p className="likes"> {likes} </p>
@@ -124,11 +126,11 @@ class Feed extends Component {
           <section className="comments">
             <div className="commentsLog">
               <ul className="commentsContainer">
-                {this.state.commentList.map((comment, index) => {
+                {this.state.commentList.map((comment, id) => {
                   return (
                     <Comment
-                      key={index}
-                      id={index}
+                      key={comment.id}
+                      id={comment.id}
                       comment={comment.comment}
                       deleteComment={this.deleteComment}
                       fillHeart={this.fillHeart}
