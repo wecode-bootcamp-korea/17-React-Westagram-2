@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FeedComment from '../FeedComment/FeedComment';
+import "./FeedContent.scss";
 
 class FeedConent extends Component {
 
@@ -54,7 +55,7 @@ class FeedConent extends Component {
                                     <img className="round_image_small"
                                         src={mainData.mainImage}
                                         alt="profile" />
-                                    <span>Purple님 외 4명이 좋아합니다.</span>
+                                    <span> Purple님 외 4명이 좋아합니다.</span>
                                 </div>
                                 <div className="feed_message_container">
                                     <span className="feed_main_id">{mainData.mainId}</span>

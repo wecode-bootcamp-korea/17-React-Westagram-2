@@ -8,15 +8,15 @@ class Login extends React.Component {
     state = {
         id: '',
         password: '',
-        opacity: "0.3"
+        validate: false,
+        iscolor: false,
     }
 
     handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         });
-        const validation = this.state.id.indexOf("@") && this.state.password >= 5
-        validation ? this.setState({ opacity: "1" }) : this.setState({ opacity: "0.3" });
+        this.state.id.indexOf("@") && this.state.password > 6 && this.setState({ iscolor: !this.state.iscolor });
     }
     goToValidate = (e) => {
         this.setState({
@@ -39,7 +39,7 @@ class Login extends React.Component {
                         <div className="input_container">
                             <input className="input_id" type="text" name="id" placeholder="전화번호, 사용자 이름 또는 이메일" defaultValue={this.state.id} onChange={this.handleChange} />
                             <input className="input_password" type="password" name="password" placeholder="비밀번호" defaultValue={this.state.password} onChange={this.handleChange} onKeyPress={this.onKeyPress} />
-                            <input className="login_button" type="button" defaultValue="로그인" style={{ opacity: this.state.opacity }} onClick={this.goToValidate} />
+                            <input className={this.state.iscolor ? "login_btn_dark" : "login_btn_light"} defaultValue="로그인" onClick={this.goToValidate} />
                         </div>
 
                         <div className="or_container">

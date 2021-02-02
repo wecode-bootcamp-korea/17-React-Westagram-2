@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Recommendation from '../Recommendation/Recommendation';
 import FeedConent from './FeedContent/FeedConent';
+import "./MainFeed.scss"
 
 class MainFeed extends Component {
     state = {
