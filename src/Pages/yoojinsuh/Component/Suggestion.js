@@ -2,10 +2,23 @@ import React, { Component } from "react";
 import "../Component/Suggestion.scss";
 
 class Suggestion extends Component {
+  constructor() {
+    super();
+    this.state = {
+      follow: false,
+    };
+  }
+
+  followMe = () => {
+    this.setState({
+      follow: !this.state.follow ? true : false,
+    });
+  };
+
   render() {
-    const { id, name, profileName, imgAlt, src, detail } = this.props;
+    const { id, profileName, imgAlt, src, detail } = this.props;
     return (
-      <div className={name} id={id}>
+      <div className="profile" id={id}>
         <div className="imageAndName">
           <img alt={imgAlt} src={src} />
           <div className="profileContainer">
@@ -13,8 +26,8 @@ class Suggestion extends Component {
             <p className="detail">{detail}</p>
           </div>
         </div>
-        <p className="follow" type="button">
-          Follow
+        <p className="follow" onClick={this.followMe}>
+          {this.state.follow ? "Unfollow" : "Follow"}
         </p>
       </div>
     );

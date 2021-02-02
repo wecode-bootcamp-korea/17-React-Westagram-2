@@ -1,6 +1,6 @@
-.stories {
+.storyContainer {
+  overflow: scroll auto;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   width: 598px;
@@ -18,11 +18,12 @@
     border: 2px solid #c62e61;
   }
 
-  .stories .story1,
-  .story2,
-  .story3,
-  .story4,
-  .story5 {
+  img:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  .Stories {
     display: flex;
     flex-direction: column;
     justify-content: center;

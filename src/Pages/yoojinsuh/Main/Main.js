@@ -49,33 +49,25 @@ class Main extends React.Component {
       });
   }
 
-  // like버튼에 효과주기 ~~
-
-  // followMe = (e) => {
-  //   this.setState({
-  //     follow: this.state.follow ? false : true,
-  //   });
-  // };
-
   render() {
     return (
       <div>
         <div className="navbar">
           <p className="logo"> Westagram </p>
           <div className="searchContainer">
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search" />
             <input className="search" type="text" placeholder="Search" />
           </div>
           <nav className="navIcons">
-            <i className="fas fa-home"></i>
-            <i className="far fa-paper-plane"></i>
-            <i className="far fa-heart"></i>
-            <i className="far fa-user"></i>
+            <i className="fas fa-home" />
+            <i className="far fa-paper-plane" />
+            <i className="far fa-heart" />
+            <i className="far fa-user" />
           </nav>
         </div>
         <main>
           <div className="mainLeft">
-            <div className="stories">
+            <div className="storyContainer disable-scrollbars">
               {this.state.storiesList.map((story, id) => {
                 return (
                   <Stories

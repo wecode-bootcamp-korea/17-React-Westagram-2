@@ -8,9 +8,9 @@ class Stories extends Component {
   }
 
   render() {
-    const { name, imgAlt, src, account } = this.props;
+    const { imgAlt, src, account } = this.props;
     return (
-      <div className={name}>
+      <div className="Stories">
         <img alt={imgAlt} src={src} />
         <p>{account}</p>
       </div>

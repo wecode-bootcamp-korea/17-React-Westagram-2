@@ -1,4 +1,4 @@
-li {
+.Comment {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,14 +22,18 @@ li {
       color: black;
     }
 
-    #commentHeart:hover {
+    #heartEmpty:hover {
       font-weight: bold;
       color: red;
     }
 
-    #filledHeart {
+    #heartFilled {
       font-weight: bold;
       color: red;
+    }
+
+    #heartEmpty {
+      color: grey;
     }
 
     i {

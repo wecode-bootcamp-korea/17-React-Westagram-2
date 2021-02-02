@@ -1,4 +1,4 @@
-.feeds {
+.Feed {
   display: flex;
   flex-direction: column;
   width: 600px;
@@ -6,7 +6,6 @@
 
   .stories {
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: flex-start;
     width: 100%;
@@ -27,7 +26,6 @@
 
     header {
       display: flex;
-      flex-direction: row;
       justify-content: space-between;
       align-items: center;
       width: 100%;
@@ -35,7 +33,6 @@
 
       .accountContainer {
         display: flex;
-        flex-direction: row;
         justify-content: flex-start;
         align-items: center;
 
@@ -81,7 +78,6 @@
 
       .footerNav {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         width: 100px;
 
@@ -117,7 +113,6 @@
 
     .contentContainer {
       display: flex;
-      flex-direction: row;
       justify-content: flex-start;
       align-items: center;
       margin-top: 8px;
@@ -156,7 +151,6 @@
 
       .addComment {
         display: flex;
-        flex-direction: row;
         justify-content: space-between;
         align-items: center;
         height: 50px;
