@@ -61,13 +61,27 @@ class Comments extends Component {
     }
   };
 
+  deleteComment = (e) => {
+    const deletedCommentId = e.target.id;
+
+    const remainComment = this.state.commentList.filter((comment) => {
+      return comment.id !== Number(deletedCommentId);
+    });
+    this.setState({
+      commentList: remainComment,
+    });
+  };
+
   render() {
     const { commentList, commentValue } = this.state;
 
     return (
       <div className="Comments">
         <ul className="feed-comment-list">
-          <Comment commentList={commentList} />
+          <Comment
+            commentList={commentList}
+            deleteComment={this.deleteComment}
+          />
         </ul>
         <span className="feed-uploaded-time">{this.props.uploadTime}</span>
         <form className="feed-comment-form">
