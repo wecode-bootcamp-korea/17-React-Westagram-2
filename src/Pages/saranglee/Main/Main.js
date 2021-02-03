@@ -5,9 +5,8 @@ import Nav from './Components/Nav/Nav';
 import Feed from './Components/Feed/Feed';
 import Story from './Components/Story/Story';
 import Recommendation from './Components/Recommendation/Recommendation';
+import Footer from './Components/Footer/Footer';
 
-import '../../../Styles/reset.scss';
-import '../../../Styles/common.scss';
 import '../common.scss';
 import './Main.scss';
 
@@ -16,32 +15,44 @@ class MainSarang extends Component {
     super();
     this.state = {
       feedData: [],
+      storyData: [],
+      recommendationData: []
     };
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data_saranglee/feedData.json', {
-      method: 'GET'
-    })
+    fetch('/data_saranglee/feedData.json')
     .then(res => res.json())
     .then(res => {
       this.setState({
         feedData: res
       })
     })
+    fetch('/data_saranglee/storyData.json')
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        storyData: res
+      })
+    })
+    fetch('/data_saranglee/recommendationData.json')
+    .then(res => res.json())
+    .then(res => {
+      this.setState({
+        recommendationData: res
+      })
+    })
   }
 
   render() {
-    const { feedData } = this.state;
+    const { feedData, storyData, recommendationData } = this.state;
 
     return (
       <div className="main">
         <Nav />
         <main>
           <div className="feeds">
-            {feedData.map(feed => {
-              return <Feed data={feed} />;
-            })} 
+            {feedData.map((feed, index) => <Feed data={feed} key={index} />)} 
           </div>
           <div className="wrap_main_right">
             <aside className="main_right">
@@ -56,29 +67,16 @@ class MainSarang extends Component {
                   <span className="aside_title">스토리</span>
                   <a className="show_all" href="https://www.instagram.com/">모두 보기</a>
                 </div>
-                <Story />
+                {storyData.map((story, index) => <Story data={story} key={index} />)}
               </div>
               <div className="recommendation">
                 <div className="aside_title_container">
                   <span className="aside_title">회원님을 위한 추천</span>
                   <a className="show_all" href="https://www.instagram.com/explore/people/suggested/">모두 보기</a>
                 </div>
-                <Recommendation />
+                {recommendationData.map((recommendation, index) => <Recommendation data={recommendation} key={index} />)}
               </div>
-              <footer>
-                <a href="https://about.instagram.com/">소개</a><span> • </span>
-                <a href="https://help.instagram.com/">도움말</a><span> • </span>
-                <a href="https://about.instagram.com/blog">홍보 센터</a><span> • </span>
-                <a href="https://www.instagram.com/developer/">API</a><span> • </span>
-                <a href="https://about.instagram.com/about-us/careers">채용 정보</a><span> • </span>
-                <a href="https://help.instagram.com/519522125107875">개인정보처리방침</a><span> • </span>
-                <a href="https://help.instagram.com/581066165581870">약관</a><span> • </span>
-                <a href="https://www.instagram.com/explore/locations/">위치</a><span> • </span>
-                <a href="https://www.instagram.com/directory/profiles/">인기계정</a><span> • </span>
-                <a href="https://www.instagram.com/directory/hashtags/">해시태그</a><span> • </span>
-                <button className="language">언어</button>
-                <p className="copyright">© 2021 INSTAGRAM FROM FACEBOOK</p>
-              </footer>
+              <Footer />
             </aside>
           </div>
         </main>

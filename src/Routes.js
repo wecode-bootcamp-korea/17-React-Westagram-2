@@ -20,7 +20,7 @@ class Routes extends Component {
         return (
             <Router>
                 <Switch>
-                    <Route exact path='/' component={ProjectMain}></Route>
+                    <Route exact path='/' component={ProjectMain} />
                     <Route exact path='/login-miheyon' component={LoginMihyeon} />
                     <Route exact path='/main-miheyon' component={MainMihyeon} />
                     <Route exact path='/login-saemsol' component={LoginSaemsol} />

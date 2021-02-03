@@ -3,8 +3,7 @@ import { withRouter } from 'react-router-dom';
 
 import westagramLogo from '../../../images/saranglee/Login/westagramLogo.svg';
 
-import '../../../Styles/reset.scss';
-import '../../../Styles/common.scss';
+import '../common.scss';
 import './Login.scss';
 
 class LoginSarang extends Component {
@@ -33,6 +32,37 @@ class LoginSarang extends Component {
     if (isValid && e.key === 'Enter') {
       this.goToMain();
     }
+  }
+
+  // signUp = () => {
+  //   fetch("http://10.58.0.202:8000/user/signup", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.idValue,
+  //       password: this.state.pwValue
+  //     })
+  //   })
+  //   .then((response) => response.json())
+  //   .then((result) => {
+  //     result.message === "SUCCESS" ? alert("회원가입 성공") :  alert("회원가입 실패")
+  //   })
+  // }
+
+  login = () => {
+    fetch("http://10.58.0.202:8000/user/signin", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.idValue,
+        password: this.state.pwValue
+      })
+    })
+    .then((response) => response.json())
+    .then((result) => {
+      if (result.token) {
+        localStorage.setItem("token", result.token);
+        this.goToMain()
+      } else alert("로그인 실패!")
+    })
   }
 
   goToMain = () => {

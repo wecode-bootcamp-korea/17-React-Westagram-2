@@ -22,9 +22,7 @@ class Feed extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/data_saranglee/commentData.json', {
-      method: 'GET'
-    })
+    fetch('/data_saranglee/commentData.json')
     .then(res => res.json())
     .then(res => {
       this.setState({
@@ -39,14 +37,8 @@ class Feed extends Component {
 
     this.setState({
       commentText: value,
-      disableBtn: false
+      disableBtn: !commentText
     })
-
-    if (!commentText) {
-      this.setState({
-        disableBtn: true
-      })
-    }
   }
 
   addComment = (e) => {
@@ -68,10 +60,10 @@ class Feed extends Component {
   render() {
     const { data } = this.props;
     const { commentList, commentData, commentText, disableBtn } = this.state;
-    const { writeComment, addComment, submitComment} = this;
+    const { writeComment, addComment, submitComment } = this;
     
     return (
-      <article className="feed" key={data.id}>
+      <article className="feed">
         <div className="feed_info">
           <div className="feed_link">
             <a href="https://www.instagram.com/wecode_bootcamp/">
@@ -87,19 +79,19 @@ class Feed extends Component {
             </div>
           </div>
           <button className="more_icon btn">
-            <img className="more_icon_img" alt="Menu icon" src={ menu } />
+            <img className="more_icon_img" alt="Menu icon" src={menu} />
           </button>
         </div>
         <img className="feed_img" alt="Feed" src={data.feedImage} />
         <div className="feed_function">
           <div className="feed_icons">
             <div className = "feed_icons_left">
-              <button><img alt="Heart Icon" src={ heart } /></button>
-              <button><img alt="Comment Icon" src={ comment } /></button>
-              <button><img alt="Send Icon" src={ send } /></button>
+              <button><img alt="Heart Icon" src={heart} /></button>
+              <button><img alt="Comment Icon" src={comment} /></button>
+              <button><img alt="Send Icon" src={send} /></button>
             </div>
             <button className="feed_icon_right">
-              <img alt="Bookmark Icon" src={ bookmark } />
+              <img alt="Bookmark Icon" src={bookmark} />
             </button>
           </div>
           <div className="likes_num">
@@ -121,16 +113,16 @@ class Feed extends Component {
             <button className="view_more btn">더 보기</button>
           </div>
           <div className="comment_container">
-            {commentData.map(comment => {
+            {commentData.map((comment, index) => {
               return(
-                <div className="comment_written">
+                <div className="comment_written" key={index}>
                   <a className="user_id" href={comment.userLink}>{comment.userId}</a>
                   <p className="comment_text">{comment.content}</p>
                 </div>
               );
             })}
-            <Comment commentList={commentList} />
           </div>
+          <Comment commentList={commentList} />
           <p className="time">{data.time}</p>
           <div className="comment">
             <input 
