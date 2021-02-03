@@ -4,7 +4,7 @@ import './Navigation.scss'
 class Navigation extends Component {
     render() {
         return (
-            <nav className="navigation">
+            <nav className="navigation gradient_border">
                 <div className="navigation_bar_column title_nav">
                     <div>Westagram</div>
                 </div>

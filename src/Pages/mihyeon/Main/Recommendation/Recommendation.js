@@ -4,7 +4,8 @@ import './Recommendation.scss';
 class Recommendation extends Component {
 
     state = {
-        followerList: []
+        followerList: [],
+        isFollow: false,
     }
 
     componentDidMount() {
@@ -18,8 +19,14 @@ class Recommendation extends Component {
                 });
             });
     }
+
+    handleFollow = (e) => {
+        this.setState({
+            isFollow: !this.state.isFollow,
+        })
+    }
     render() {
-        const { followerList } = this.state;
+        const { followerList, isFollow } = this.state;
         const { mainData } = this.props;
 
         return (
@@ -49,7 +56,7 @@ class Recommendation extends Component {
                                             <span className="user_id">{follower.nickname}</span>
                                             <span className="user_follow_status">{follower.content}</span>
                                         </div>
-                                        <div className="follow_text">팔로우</div>
+                                        <div className="follow_text" onClick={this.handleFollow}>{isFollow ? "Unfollow" : "Follow"}</div>
                                     </div>
                                 )
                             })}

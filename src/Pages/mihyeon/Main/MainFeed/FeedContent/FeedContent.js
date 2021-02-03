@@ -6,6 +6,7 @@ class FeedConent extends Component {
 
     state = {
         feedData: [],
+        isLike: false,
     }
 
     componentDidMount() {
@@ -20,13 +21,16 @@ class FeedConent extends Component {
             })
     }
 
-    handleHeart = (id) => {
-        console.log(id)
+    handleHeart = () => {
+        this.setState({
+            isLike: !this.state.isLike
+        })
     }
 
     render() {
         const { feedData } = this.state;
         const { mainData } = this.props;
+
 
         return (
             <div className="feed_container">
@@ -50,7 +54,7 @@ class FeedConent extends Component {
                             </div>
                             <div className="board_container">
                                 <div className="icons_contianer">
-                                    <i className="far fa-heart" id={data.id}> </i>
+                                    <i className="far fa-heart" id={this.state.isLike ? "heart_bold" : "heart_empty"} onClick={this.handleHeart}></i>
                                     <i className="far fa-comment"></i>
                                     <i className="fas fa-external-link-alt"></i>
                                     <i className="far fa-bookmark"></i>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Recommendation from '../Recommendation/Recommendation';
-import FeedConent from './FeedContent/FeedConent';
+import FeedContent from './FeedContent/FeedContent';
 import "./MainFeed.scss"
 
 class MainFeed extends Component {
@@ -23,7 +23,7 @@ class MainFeed extends Component {
         const { mainData } = this.state;
         return (
             <main className="main_container">
-                <FeedConent mainData={mainData} />
+                <FeedContent mainData={mainData} />
                 <Recommendation mainData={mainData} />
             </main>
         );

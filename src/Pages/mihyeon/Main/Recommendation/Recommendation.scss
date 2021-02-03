@@ -30,7 +30,6 @@
                     margin: 0 0 0 8px;
                     font-size: 15px;
                 }
-                
             }
         }
         .recomandation_list{
@@ -46,8 +45,10 @@
             .recommendation_cotainer{
                 display: flex;
                 flex-direction: column;
+
                 .recomandation_individual{
                     display: flex;
+
                     div{          
                             display: flex;
                             flex-direction: column;
@@ -61,7 +62,8 @@
                         margin: 0 10px 0 0;
                     }
                     .follow_text{
-                        margin-right:0
+                        margin-right:0;
+                        color:var(--color-blue)
                     }
                     .round_image{
                         margin-right: 10px;
@@ -71,8 +73,6 @@
                     } 
                 }   
             }
-           
         }
-        
     }            
 }    

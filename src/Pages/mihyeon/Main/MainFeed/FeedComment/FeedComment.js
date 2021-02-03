@@ -56,7 +56,7 @@ class FeedComment extends Component {
     }
 
     render() {
-        const { commentList } = this.state;
+        const { commentList, comment } = this.state;
         const commentLiElement = commentList.map((comment) => {
             return (
                 <CommentList key={comment.id} id={comment.id} deleteEvent={this.handleDeleteComment} name={comment.userName} comment={comment.content} />
@@ -68,7 +68,7 @@ class FeedComment extends Component {
                 <div className="comment"> {commentLiElement}</div>
                 <div className="comment_line"></div>
                 <form className="comment_write_form">
-                    <input aria-label="댓글 달기 " className="comment_input" name="comment" placeholder="댓글달기..." onChange={this.handleWriteComment} value={this.state.comment}></input>
+                    <input aria-label="댓글 달기 " className="comment_input" name="comment" placeholder="댓글달기..." onChange={this.handleWriteComment} value={comment}></input>
                     <button className="comment_submit_button" onClick={this.handleUpdateComment} >게시</button>
                 </form>
             </div>
