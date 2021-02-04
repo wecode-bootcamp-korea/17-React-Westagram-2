@@ -163,12 +163,15 @@ a {
     flex-direction: row;
     font-size: 14px;
 
-    a {
-      color: #0095f6;
-      font-weight: bold;
+    span {
+      span {
+        color: #0095f6;
+        font-weight: bold;
+        cursor: pointer;
 
-      &:active {
-        color: #84c7fb;
+        &:active {
+          color: #84c7fb;
+        }
       }
     }
   }

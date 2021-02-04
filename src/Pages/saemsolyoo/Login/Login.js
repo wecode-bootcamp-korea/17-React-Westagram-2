@@ -40,6 +40,49 @@ class Login extends Component {
     });
   };
 
+  loginValidate = () => {
+    fetch("http://10.58.4.165:8000/users", {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.pw,
+        full_name: "saemsol7",
+        phone_number: "01075527",
+        username: "samy7",
+      }),
+    })
+      .then((response) => response.json())
+      // .then((result) => {
+      //   console.log("====================");
+      //   console.log("백엔드에서 오는 응답 메세지:", result.message)
+      // })
+      .then((result) => this.checkJoinResult(result));
+    // .then((result) => this.checkLoginResult(result));
+  };
+
+  //로그인
+  // checkLoginResult = (result) => {
+  //   console.log(result);
+  //   if (result.message === "SUCCESS") {
+  //     localStorage.setItem("token", result.token);
+  //     this.goToMain();
+  //   } else {
+  //     alert("우리회원이 아닙니다 🤔");
+  //   }
+  // };
+
+  //회원가입
+  checkJoinResult = (result) => {
+    console.log(result);
+    // console.log(this.state.id);
+    // console.log(this.state.pw);
+    if (result.message === "ALREADY_SINGUP") {
+      alert("이미 우리의 회원입니다! 로그인을 진행해주세요! ✅");
+    } else {
+      alert("회원가입이 되었습니다 ✨");
+    }
+  };
+
   render() {
     return (
       <div className="login-page">
@@ -60,7 +103,7 @@ class Login extends Component {
               required
               onChange={this.handlePwInput}
             />
-            <a onClick={this.goToMain}>
+            <a onClick={this.loginValidate}>
               <button
                 className="login-btn"
                 type="button"
@@ -81,7 +124,7 @@ class Login extends Component {
         </section>
         <section className="join">
           <span>
-            계정이 없으신가요? <a href="#">가입하기</a>
+            계정이 없으신가요? <span>가입하기</span>
           </span>
         </section>
       </div>
