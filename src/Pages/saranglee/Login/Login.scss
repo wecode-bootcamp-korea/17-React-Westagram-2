@@ -11,25 +11,7 @@
   padding: 20px 0;
   background-color: #ffffff;
   border: $border;
-
-  * {
-    box-sizing: border-box;
-    font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
-    &:focus {
-      outline: none;
-    }
-  }
-  
-  a {
-    color: inherit;
-    text-decoration: inherit;
-  }
-  
-  body {
-    background-color: $bgColor;
-  }
-  
+ 
   .logo_img{
     display: block;
     width: 175px;
