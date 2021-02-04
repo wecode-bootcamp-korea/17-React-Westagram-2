@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../Component/Suggestion.scss";
+import "../Suggestion/Suggestion.scss";
 
 class Suggestion extends Component {
   constructor() {

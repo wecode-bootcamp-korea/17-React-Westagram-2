@@ -12,12 +12,8 @@ import appstore from "../../../images/yoojin/login/appstore.png";
 class Login extends Component {
   constructor() {
     super();
-    this.state = { id: "", password: "" };
+    this.state = { id: "", pw: "" };
   }
-
-  goToMain = () => {
-    this.props.history.push("/main-yoojin");
-  };
 
   handleAllInput = (e) => {
     this.setState({
@@ -26,13 +22,60 @@ class Login extends Component {
   };
 
   loginKeyup = () => {
-    this.state.id.includes("@") && this.state.password.length > 5
+    this.state.id.includes("@") && this.state.pw.length > 5
       ? this.setState({ buttonChange: "darkBtn" })
       : this.setState({
           buttonChange: "lightBtn",
         });
   };
 
+  goToMain = () => {
+    this.props.history.push("/main-yoojin");
+  };
+
+  enterCommentList = (e) => {
+    if (e.key === "Enter") {
+      this.props.history.push("/main-yoojin");
+    }
+  };
+  ///회원가입
+  // goToMain = () => {
+  //   fetch("http://10.58.0.202:8000/user/signup", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.id,
+  //       phone: "010-1234-4567",
+  //       password: this.state.pw,
+  //       nickname: "yoojin",
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) =>
+  //       result.message === "SUCCESS"
+  //         ? alert("회원가입 성공~")
+  //         : alert("회원가입 실패~")
+  //     );
+  // };
+
+  // goToMain = () => {
+  //   fetch("http://10.58.0.202:8000/user/signup", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.id,
+  //       phone: "010 - 1111 - 1111",
+  //       password: this.state.pw,
+  //       nickname: "yoojin",
+  //     }),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((result) => {
+  //       if (result.token) {
+  //         localStorage.setItem("token", result.token);
+  //         this.props.history.push("/main-yoojin");
+  //       } else alert("로그인 인증에 실패하셨");
+  //     });
+  // };
+  //
   render() {
     return (
       <div className="body">
@@ -48,8 +91,8 @@ class Login extends Component {
               value={this.state.id}
             />
             <input
-              className="password"
-              name="password"
+              className="pw"
+              name="pw"
               type="password"
               placeholder="Password"
               onChange={this.handleAllInput}

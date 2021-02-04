@@ -1,13 +1,8 @@
-.storyContainer {
-  overflow: scroll auto;
+.Stories {
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 598px;
-  height: 120px;
-  margin-top: 60px;
-  border: 1px solid #dbdbdb;
-  border-radius: 2px;
+  flex-direction: column;
+  justify-content: center;
+  width: 90px;
 
   img {
     width: 70px;
@@ -21,13 +16,6 @@
   img:hover {
     cursor: pointer;
     transform: scale(1.1);
-  }
-
-  .Stories {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 90px;
   }
 
   p {

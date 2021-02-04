@@ -1,7 +1,7 @@
 import React from "react";
-import Stories from "../Component/Stories";
-import Feed from "../Component/Feed";
-import Suggestion from "../Component/Suggestion";
+import Stories from "../Component/Stories/Stories";
+import Feed from "../Component/Feed/Feed";
+import Suggestion from "../Component/Suggestion/Suggestion";
 
 import "./Main.scss";
 import "../../../Styles/reset.scss";
@@ -20,7 +20,7 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data_yoojin/feedData.json", {
+    fetch("/data_yoojin/feedData.json", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -29,7 +29,7 @@ class Main extends React.Component {
           feedList: data,
         });
       });
-    fetch("http://localhost:3000/data_yoojin/storiesData.json", {
+    fetch("/data_yoojin/storiesData.json", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -38,7 +38,7 @@ class Main extends React.Component {
           storiesList: data,
         });
       });
-    fetch("http://localhost:3000/data_yoojin/suggestData.json", {
+    fetch("/data_yoojin/suggestData.json", {
       method: "GET",
     })
       .then((res) => res.json())
@@ -51,7 +51,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Main">
         <div className="navbar">
           <p className="logo"> Westagram </p>
           <div className="searchContainer">
@@ -80,13 +80,13 @@ class Main extends React.Component {
                 );
               })}
             </div>
-            <div className="Feed">
+            <div className="feedContainer">
               {this.state.feedList.map((feed, id) => {
                 return (
                   <Feed
                     key={id}
-                    proAlt={feed.proAlt}
-                    mainAlt={feed.mainAlt}
+                    profileAlt={feed.profileAlt}
+                    mainFeedAlt={feed.mainFeedAlt}
                     profileImage={feed.profileImage}
                     userName={feed.userName}
                     mainImage={feed.mainImage}
@@ -97,7 +97,7 @@ class Main extends React.Component {
               })}
             </div>
           </div>
-          <div className="main-right">
+          <div className="mainRight">
             <div className="myProfile">
               <img alt="myProfile pic" src={profilepic} />
               <div className="accountInfo">
