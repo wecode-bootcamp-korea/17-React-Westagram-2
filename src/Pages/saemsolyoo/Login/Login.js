@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./Login.scss";
 import { withRouter } from "react-router-dom";
+import "./Login.scss";
 
 class Login extends Component {
   constructor() {
@@ -23,18 +23,10 @@ class Login extends Component {
     this.setState({ validation: idCondition && pwCondition ? false : true });
   };
 
-  handleIdInput = (e) => {
-    const userId = e.target.value;
+  handleInput = (e) => {
+    const { value, name } = e.target;
     this.setState({
-      id: userId,
-    });
-  };
-
-  handlePwInput = (e) => {
-    const userPw = e.target.value;
-
-    this.setState({
-      pw: userPw,
+      [name]: value,
     });
   };
 
@@ -92,14 +84,16 @@ class Login extends Component {
               type="text"
               placeholder="전화번호, 사용자 이름 또는 이메일"
               required
-              onChange={this.handleIdInput}
+              onChange={this.handleInput}
+              name="id"
             />
             <input
               className="input-pw"
               type="password"
               placeholder="비밀번호"
               required
-              onChange={this.handlePwInput}
+              onChange={this.handleInput}
+              name="pw"
             />
             <a onClick={this.loginValidate}>
               <button

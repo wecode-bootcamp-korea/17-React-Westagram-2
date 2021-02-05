@@ -7,7 +7,7 @@ class Feed extends Component {
       <div>
         {this.props.feedDatas.map((feed) => {
           return (
-            <article className="main-feed" id={feed.id}>
+            <article className="main-feed" id={feed.id} key={feed.id}>
               <header>
                 <a href="#" className="feed-profile">
                   <img src={feed.pofile_img_src} alt="profile image" />

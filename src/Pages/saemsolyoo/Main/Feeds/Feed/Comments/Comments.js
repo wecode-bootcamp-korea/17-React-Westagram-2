@@ -16,7 +16,6 @@ class Comments extends Component {
     fetch("/data_saemsolyoo/commentData.json")
       .then((res) => res.json())
       .then((data) => {
-        console.log();
         this.setState({
           commentList: data,
         });
