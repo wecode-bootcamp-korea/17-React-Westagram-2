@@ -14,16 +14,14 @@ class Comment extends Component {
               </div>
               <div>
                 <i
-                  id={comment.id}
                   className="fas fa-trash"
-                  onClick={this.props.deleteComment}
-                ></i>
-                <i
-                  className={comment.isLiked ? "hidden" : "far fa-heart unlike"}
-                ></i>
-                <i
-                  className={comment.isLiked ? "fas fa-heart like" : "hidden"}
-                ></i>
+                  onClick={() => this.props.deleteComment(comment.id)}
+                />
+                {comment.isLiked ? (
+                  <i className="fas fa-heart like" />
+                ) : (
+                  <i className="far fa-heart unlike" />
+                )}
               </div>
             </li>
           );

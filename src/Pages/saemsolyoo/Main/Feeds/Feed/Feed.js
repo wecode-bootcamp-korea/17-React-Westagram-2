@@ -17,7 +17,7 @@ class Feed extends Component {
                   <a href="#">{feed.location}</a>
                 </div>
                 <a href="#">
-                  <i className="fas fa-ellipsis-h"></i>
+                  <i className="fas fa-ellipsis-h" />
                 </a>
               </header>
               <img
@@ -28,11 +28,11 @@ class Feed extends Component {
               <div className="feed-comment">
                 <div className="feed-icons">
                   <div className="feed-icons-left">
-                    <i className="far fa-heart"></i>
-                    <i className="far fa-comment"></i>
-                    <i className="far fa-paper-plane"></i>
+                    <i className="far fa-heart" />
+                    <i className="far fa-comment" />
+                    <i className="far fa-paper-plane" />
                   </div>
-                  <i className="far fa-bookmark"></i>
+                  <i className="far fa-bookmark" />
                 </div>
                 <span className="feed-likes">좋아요 {feed.likes}개</span>
               </div>

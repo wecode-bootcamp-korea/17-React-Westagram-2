@@ -1,16 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cookie&display=swap");
-@import url("https://use.fontawesome.com/releases/v5.15.2/css/all.css");
-
-%flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-%flex-space-between {
-  display: flex;
-  justify-content: space-between;
-}
+@import "../../../../../Styles/common.scss";
 
 .main-page {
   display: flex;

@@ -13,7 +13,7 @@ class Comments extends Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:3000/data_saemsolyoo/commentData.json")
+    fetch("/data_saemsolyoo/commentData.json")
       .then((res) => res.json())
       .then((data) => {
         console.log();
@@ -24,11 +24,7 @@ class Comments extends Component {
   }
 
   activeSubmitBtn = (e) => {
-    if (e.target.value.length > 0) {
-      this.setState({ disabled: false });
-    } else {
-      this.setState({ disabled: true });
-    }
+    this.setState({ disabled: e.target.value.length > 0 ? false : true });
   };
 
   addComment = () => {
@@ -61,11 +57,9 @@ class Comments extends Component {
     }
   };
 
-  deleteComment = (e) => {
-    const deletedCommentId = e.target.id;
-
+  deleteComment = (id) => {
     const remainComment = this.state.commentList.filter((comment) => {
-      return comment.id !== Number(deletedCommentId);
+      return comment.id !== Number(id);
     });
     this.setState({
       commentList: remainComment,

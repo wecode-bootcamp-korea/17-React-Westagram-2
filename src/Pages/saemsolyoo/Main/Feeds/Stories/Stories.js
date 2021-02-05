@@ -8,7 +8,7 @@ class Stories extends Component {
         <ul>
           {this.props.datas.map((story) => {
             return (
-              <li id={story.id}>
+              <li key={story.id}>
                 <a href="#" className="story-profile">
                   <img src={story.img_src} alt="profile image" />
                   <span className="story-profile-name">{story.username}</span>

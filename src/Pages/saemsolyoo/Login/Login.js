@@ -20,9 +20,7 @@ class Login extends Component {
     const idCondition = this.state.id.includes("@");
     const pwCondition = this.state.pw.length > 4;
 
-    idCondition && pwCondition
-      ? this.setState({ validation: false })
-      : this.setState({ validation: true });
+    this.setState({ validation: idCondition && pwCondition ? false : true });
   };
 
   handleIdInput = (e) => {

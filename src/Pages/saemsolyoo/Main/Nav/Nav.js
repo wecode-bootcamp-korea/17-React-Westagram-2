@@ -11,27 +11,27 @@ class Nav extends Component {
           </a>
           <div className="nav-search">
             <input type="text" placeholder="검색" />
-            <i className="fas fa-search"></i>
+            <i className="fas fa-search" />
           </div>
           <ul className="nav-icons">
             <li>
               <a href="#">
-                <i className="fas fa-home"></i>
+                <i className="fas fa-home" />
               </a>
             </li>
             <li>
               <a href="#">
-                <i className="far fa-paper-plane"></i>
+                <i className="far fa-paper-plane" />
               </a>
             </li>
             <li>
               <a href="#">
-                <i className="far fa-compass"></i>
+                <i className="far fa-compass" />
               </a>
             </li>
             <li>
               <a href="#">
-                <i className="far fa-heart"></i>
+                <i className="far fa-heart" />
               </a>
             </li>
             <li>
