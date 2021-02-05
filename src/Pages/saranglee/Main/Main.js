@@ -24,19 +24,19 @@ class MainSarang extends Component {
     })
   }
 
-  scrollTop = () => {
+  handleScrollTop = () => {
     
   }
 
   render() {
     const { feedData } = this.state;
-    const { scrollTop } = this;
+    const { handleScrollTop } = this;
 
     return (
       <div className="main">
         <Nav />
-        <section>
-          <div className="feeds">
+        <main>
+          <section className="feeds">
             {feedData.map((feed) => 
               <Feed
                 key={feed.id}
@@ -55,13 +55,13 @@ class MainSarang extends Component {
             )}
             <button 
               className="scrollTop btn"
-              onClick={scrollTop}
+              onClick={handleScrollTop}
             >위로 가기</button>
-          </div>
+          </section>
           <div className="wrap_main_right">
             <Aside />
           </div>
-        </section>
+        </main>
       </div>
     );
   }

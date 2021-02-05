@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import './Recommendation.scss';
 
 class Recommendation extends Component {

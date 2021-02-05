@@ -23,18 +23,18 @@
 
     .feed_link {
       @extend %flex-center;
-      
-      .feed_user_info {
-        display: flex;
-        flex-direction: column;
-        margin-left: 14px;
+    }
 
-        .user_location {
-          margin-top: 2px;
-          font-size: 12px;
-          font-weight: 400;
-        }
-      }
+    .feed_user_info {
+      display: flex;
+      flex-direction: column;
+      margin-left: 14px;
+    }
+    
+    .user_location {
+      margin-top: 2px;
+      font-size: 12px;
+      font-weight: 400;
     }
 
     .more_icon {
@@ -127,7 +127,7 @@
       }
     }
 
-    .comment_container {
+    .comment_submit_container {
       @extend %flex-center;
       justify-content: space-between;
       height: 56px;

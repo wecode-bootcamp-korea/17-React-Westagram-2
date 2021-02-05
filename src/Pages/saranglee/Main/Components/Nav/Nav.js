@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-
-import westagramLogo from  '../../../../../images/saranglee/Main/westagramLogo.svg';
-import instagram from '../../../../../images/saranglee/Main/instagram.svg';
-import search from '../../../../../images/saranglee/Main/search.svg';
-
+import Svg from '../../../../../images/saranglee/Main/svg';
 import './Nav.scss';
 
 class Nav extends Component {
@@ -12,14 +8,14 @@ class Nav extends Component {
       <nav className="nav">
         <div className="nav_container">
           <div className="logo_container">
-            <img className="instagram_icon" alt="Instagram Icon" src={instagram} />
+            <img className="instagram_icon" alt="Instagram Icon" src={Svg.instagram} />
             <div className="line" />
-            <img className="logo_img" alt="Westagram Logo" src={westagramLogo} />
+            <img className="logo_img" alt="Westagram Logo" src={Svg.westagramLogo} />
           </div>
           <div className="search_bar">
             <input className="search" type="search" />
             <div className="search_placeholder">
-              <img className="search_icon" alt="Search Icon" src={search} />
+              <img className="search_icon" alt="Search Icon" src={Svg.search} />
               <span>검색</span>
             </div>
           </div>

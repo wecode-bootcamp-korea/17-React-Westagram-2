@@ -1,13 +1,6 @@
 import React, { Component } from 'react';
-
 import Comment from '../Comment/Comment';
-
-import menu from '../../../../../images/saranglee/Main/menu.svg';
-import heart from '../../../../../images/saranglee/Main/heart.svg';
-import send from '../../../../../images/saranglee/Main/send.svg';
-import bookmark from '../../../../../images/saranglee/Main/bookmark.svg';
-import comment from '../../../../../images/saranglee/Main/comment.svg';
-
+import Svg from '../../../../../images/saranglee/Main/svg';
 import './Feed.scss';
 
 class Feed extends Component {
@@ -15,7 +8,7 @@ class Feed extends Component {
     super();
     this.state = {
       commentText: '',
-      disableBtn: true,
+      isBtnDisabled: true,
       commentList: [],
       commentData: []
     }
@@ -32,39 +25,39 @@ class Feed extends Component {
   }
 
   writeComment = e => {
-    const { commentText } = this.state;
     const { value } = e.target;
-
     this.setState({
-      commentText: value,
-      disableBtn: !commentText
+      commentText: value
     })
   }
 
   addComment = (e) => {
-    if (e.key === "Enter") {
+    const { commentText } = this.state;
+    this.setState({
+      isBtnDisabled: commentText ? false : true
+    })
+    if (commentText && e.key === "Enter") {
       this.submitComment();
     }
   }
 
   submitComment = () => {
     const { commentList, commentText } = this.state;
-
     this.setState({
       commentList: commentList.concat([commentText]),
       commentText: '',
-      disableBtn: true
+      isBtnDisabled: true
     })
   }
 
   render() {
     const { userImage, userLink, userId, userLocation, feedImage, likeUserLink, likeUserImage, likeUser, likeUserNum, feedText, time } = this.props;
-    const { commentList, commentData, commentText, disableBtn } = this.state;
+    const { commentList, commentData, commentText, isBtnDisabled } = this.state;
     const { writeComment, addComment, submitComment } = this;
     
     return (
       <article className="feed">
-        <div className="feed_info">
+        <header className="feed_info">
           <div className="feed_link">
             <a href="https://www.instagram.com/wecode_bootcamp/">
               <img className="user_profile_img img_medium" alt="User Profile" src={userImage} />
@@ -79,19 +72,19 @@ class Feed extends Component {
             </div>
           </div>
           <button className="more_icon btn">
-            <img className="more_icon_img" alt="Menu icon" src={menu} />
+            <img className="more_icon_img" alt="Menu icon" src={Svg.menu} />
           </button>
-        </div>
+        </header>
         <img className="feed_img" alt="Feed" src={feedImage} />
         <div className="feed_function">
           <div className="feed_icons">
             <div className = "feed_icons_left">
-              <button><img alt="Heart Icon" src={heart} /></button>
-              <button><img alt="Comment Icon" src={comment} /></button>
-              <button><img alt="Send Icon" src={send} /></button>
+              <button><img alt="Heart Icon" src={Svg.heart} /></button>
+              <button><img alt="Comment Icon" src={Svg.comment} /></button>
+              <button><img alt="Send Icon" src={Svg.send} /></button>
             </div>
             <button className="feed_icon_right">
-              <img alt="Bookmark Icon" src={bookmark} />
+              <img alt="Bookmark Icon" src={Svg.bookmark} />
             </button>
           </div>
           <div className="likes_num">
@@ -120,26 +113,26 @@ class Feed extends Component {
                     <a className="user_id" href={comment.userLink}>{comment.userId}</a>
                     <p className="comment_text">{comment.content}</p>
                   </span>
-                  <img className="comment_like_btn" src={heart}/>
+                  <img className="comment_like_btn" src={Svg.heart}/>
                 </div>
               );
             })}
           </div>
           <Comment commentList={commentList} />
           <p className="time">{time}</p>
-          <div className="comment_container">
+          <div className="comment_submit_container">
             <input 
               className="comment_input"
               value={commentText}
               onChange={writeComment}
-              onKeyPress={addComment}
+              onKeyUp={addComment}
               type="text"
               placeholder="댓글 달기..."
             />
             <button
               className="comment_submit btn"
               onClick={submitComment}
-              disabled={disableBtn}
+              disabled={isBtnDisabled}
             >게시
             </button>
           </div>

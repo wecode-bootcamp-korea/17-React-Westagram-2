@@ -4,7 +4,6 @@ $border: 1px solid #dbdbdb;
 * {
   box-sizing: border-box;
   font-family: -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-
   &:focus {
     outline: none;
   }
@@ -44,10 +43,6 @@ a {
 .user_profile_img {
   border: $border;
   border-radius: 50%;
-}
-
-.user_id {
-  font-weight: 600;
 }
 
 .user_id, .likes_users {

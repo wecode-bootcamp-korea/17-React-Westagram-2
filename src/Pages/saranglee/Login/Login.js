@@ -32,6 +32,10 @@ class LoginSarang extends Component {
     }
   }
 
+  goToMain = () => {
+    this.props.history.push('/main-sarang')
+  }
+
   // signUp = () => {
   //   fetch("http://10.58.0.202:8000/user/signup", {
   //     method: "POST",
@@ -62,10 +66,6 @@ class LoginSarang extends Component {
   //     } else alert("로그인 실패!")
   //   })
   // }
-
-  goToMain = () => {
-    this.props.history.push('/main-sarang')
-  }
 
   render() {
     const { isBtnDisabled } = this.state;
