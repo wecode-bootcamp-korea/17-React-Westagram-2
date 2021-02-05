@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import westagramLogo from '../../../images/saranglee/Login/westagramLogo.svg';
+import Svg from '../../../images/saranglee/svg';
 import '../common.scss';
 import './Login.scss';
 
@@ -73,7 +73,7 @@ class LoginSarang extends Component {
     return (
       <main className="loginSarang">
         <div className="logo_login_wrap">
-          <img className="logo_img" alt="Westagram Logo" src={westagramLogo} />
+          <img className="logo_img" alt="Westagram Logo" src={Svg.westagramLogo} />
           <div className="login_container" onKeyPress={validation}>
             <input 
               className="id_input"

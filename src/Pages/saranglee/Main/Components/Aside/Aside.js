@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Story from '../Story/Story';
-import Recommendation from '../Recommendation/Recommendation';
+import RecommendedAccount from '../RecommendedAccount/RecommendedAccount';
 import Footer from '../Footer/Footer'
 import './Aside.scss'
 
@@ -60,7 +60,7 @@ class Aside extends Component {
             <a className="show_all" href="https://www.instagram.com/explore/people/suggested/">모두 보기</a>
           </div>
           {recommendationData.map(recommendation => 
-            <Recommendation
+            <RecommendedAccount
               key={recommendation.id}
               userImage={recommendation.userImage}
               userLink={recommendation.userLink}

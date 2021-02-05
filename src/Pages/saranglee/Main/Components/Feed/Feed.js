@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Comment from '../Comment/Comment';
-import Svg from '../../../../../images/saranglee/Main/svg';
+import Svg from '../../../../../images/saranglee/svg';
 import './Feed.scss';
 
 class Feed extends Component {

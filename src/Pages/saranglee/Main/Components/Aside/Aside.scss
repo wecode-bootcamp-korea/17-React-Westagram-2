@@ -47,59 +47,44 @@
     }
   }
   
-  .story, .recommended_account {
+  .story, .recommendedAccount {
     @extend %flex-center;
     justify-content: space-between;
     width: 100%;
     margin: 14px 0;
-  }
-  .story .user_id {
-    padding-bottom: 4px;
-  }
 
-  .recommendation .user_id {
-    padding-bottom: 4px;
+    .img_user_info {
+      display: inline-flex;
+      align-items: center;
+  
+      .aside_img {
+        @extend %flex-center;
+        justify-content: center;
+        position: relative;
+        width: 40px;
+        height: 40px;
+      }
+  
+      .user_id_info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+        font-size: 14px;
+    
+        .aside_user_info {
+          font-size: 12px;
+          font-weight: 400;
+          color: #8e8e8e;
+        }
+      }
+    }
   }
-
+  
   .story img {
     position: absolute;
   }
 
-  .img_user_info {
-    display: inline-flex;
-    align-items: center;
-  }
-
-  .follow {
-    color: #0095f6;
-    font-weight: 600;
-  }
-  
-  .aside_user_info {
-    font-size: 12px;
-    font-weight: 400;
-    color: #8e8e8e;
-  }
-
-  .aside_img {
-    @extend %flex-center;
-    justify-content: center;
-    position: relative;
-    width: 40px;
-    height: 40px;
-
-    .story_border {
-      width: 100%;
-      height: 100%;
-      border: 2px solid #ff0000;
-      border-radius: 50%;
-    }
-  }
-
-  .user_id_info {
-    display: flex;
-    flex-direction: column;
-    margin-left: 8px;
-    font-size: 14px;
+  .story .user_id, .recommendedAccount .user_id {
+    padding-bottom: 4px;
   }
 }

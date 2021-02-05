@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
+import Svg from '../../../../../images/saranglee/svg';
 import './Comment.scss';
-
-import heart from '../../../../../images/saranglee/Main/heart.svg';
 
 class Comment extends Component {
   render() {
@@ -14,7 +13,7 @@ class Comment extends Component {
               <a className="user_id" href="https://www.instagram.com/sadfrogmeme/">pepe_sad</a>
               <p className="comment_text">{commentList}</p>
             </span>
-            <img className="comment_like_btn" src={heart}/>
+            <img className="comment_like_btn" src={Svg.heart}/>
           </div>
         })}
       </div>

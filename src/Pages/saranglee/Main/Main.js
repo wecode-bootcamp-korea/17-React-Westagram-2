@@ -24,14 +24,8 @@ class MainSarang extends Component {
     })
   }
 
-  handleScrollTop = () => {
-    
-  }
-
   render() {
     const { feedData } = this.state;
-    const { handleScrollTop } = this;
-
     return (
       <div className="main">
         <Nav />
@@ -53,10 +47,6 @@ class MainSarang extends Component {
                 time={feed.time}
               />
             )}
-            <button 
-              className="scrollTop btn"
-              onClick={handleScrollTop}
-            >위로 가기</button>
           </section>
           <div className="wrap_main_right">
             <Aside />

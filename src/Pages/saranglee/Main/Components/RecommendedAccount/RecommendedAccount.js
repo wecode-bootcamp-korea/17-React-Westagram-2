@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './Recommendation.scss';
+import './RecommendedAccount.scss';
 
-class Recommendation extends Component {
+class RecommendedAccount extends Component {
   render() {
     const { userLink, userImage, userId, follower } = this.props;
     return (
-      <div className="recommended_account">
+      <div className="recommendedAccount">
         <div className="img_user_info">
           <a className="aside_img" href={userLink}>
             <img alt="Profile" className="user_profile_img img_medium" src={userImage} />
@@ -21,4 +21,4 @@ class Recommendation extends Component {
   }
 }
 
-export default Recommendation;
+export default RecommendedAccount;

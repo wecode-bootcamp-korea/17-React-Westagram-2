@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Svg from '../../../../../images/saranglee/Main/svg';
+import Svg from '../../../../../images/saranglee/svg';
 import './Nav.scss';
 
 class Nav extends Component {
