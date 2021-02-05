@@ -6,13 +6,13 @@
 
   .comment_written {
     @extend %flex-center;
-    justify-content: column;
+    justify-content: row;
     margin-bottom: 4px;
     padding: 0 16px;
 
     .comment_text {
       padding-left: 5px;
-      font-size: 13px; 
+      font-size: 14px; 
     }
   }
 }

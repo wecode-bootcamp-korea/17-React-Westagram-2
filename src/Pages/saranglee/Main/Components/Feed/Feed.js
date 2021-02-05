@@ -58,7 +58,7 @@ class Feed extends Component {
   }
 
   render() {
-    const { data } = this.props;
+    const { userImage, userLink, userId, userLocation, feedImage, likeUserLink, likeUserImage, likeUser, likeUserNum, feedText, time } = this.props;
     const { commentList, commentData, commentText, disableBtn } = this.state;
     const { writeComment, addComment, submitComment } = this;
     
@@ -67,14 +67,14 @@ class Feed extends Component {
         <div className="feed_info">
           <div className="feed_link">
             <a href="https://www.instagram.com/wecode_bootcamp/">
-              <img className="user_profile_img img_medium" alt="User Profile" src={data.userImage} />
+              <img className="user_profile_img img_medium" alt="User Profile" src={userImage} />
             </a>
             <div className="feed_user_info">
-                <a className="user_id" href={data.userLink}>
-                  {data.userId}
+                <a className="user_id" href={userLink}>
+                  {userId}
                 </a>
                 <a className="user_location" href="https://www.instagram.com/explore/locations/213941548/seattle-washington/">
-                  {data.userLocation}
+                  {userLocation}
                 </a>
             </div>
           </div>
@@ -82,7 +82,7 @@ class Feed extends Component {
             <img className="more_icon_img" alt="Menu icon" src={menu} />
           </button>
         </div>
-        <img className="feed_img" alt="Feed" src={data.feedImage} />
+        <img className="feed_img" alt="Feed" src={feedImage} />
         <div className="feed_function">
           <div className="feed_icons">
             <div className = "feed_icons_left">
@@ -95,36 +95,39 @@ class Feed extends Component {
             </button>
           </div>
           <div className="likes_num">
-            <a href={data.likeUserLink}>
-              <img className="user_profile_img img_small" alt="Profile" src={data.likeUserImage} />
+            <a href={likeUserLink}>
+              <img className="user_profile_img img_small" alt="Profile" src={likeUserImage} />
             </a>
             <p>
-              <a className="user_id" href={data.likeUserLink}>
-                {data.likeUser}
+              <a className="user_id" href={likeUserLink}>
+                {likeUser}
               </a>님
               <button className="likes_users btn">
-                {data.likeUserNum}
+                {likeUserNum}
               </button>이 좋아합니다
             </p>
           </div>
           <div className="feed_content">
-            <a className="user_id" href={data.userLink}>{data.userId}</a>
-            <p>{data.feedText}</p>
+            <a className="user_id" href={userLink}>{userId}</a>
+            <p>{feedText}</p>
             <button className="view_more btn">더 보기</button>
           </div>
-          <div className="comment_container">
-            {commentData.map((comment, index) => {
+          <div className="comment">
+            {commentData.map(comment => {
               return(
-                <div className="comment_written" key={index}>
-                  <a className="user_id" href={comment.userLink}>{comment.userId}</a>
-                  <p className="comment_text">{comment.content}</p>
+                <div className="comment_written" key={comment.id}>
+                  <span className="comment_content">
+                    <a className="user_id" href={comment.userLink}>{comment.userId}</a>
+                    <p className="comment_text">{comment.content}</p>
+                  </span>
+                  <img className="comment_like_btn" src={heart}/>
                 </div>
               );
             })}
           </div>
           <Comment commentList={commentList} />
-          <p className="time">{data.time}</p>
-          <div className="comment">
+          <p className="time">{time}</p>
+          <div className="comment_container">
             <input 
               className="comment_input"
               value={commentText}

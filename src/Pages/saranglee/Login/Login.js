@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-
 import westagramLogo from '../../../images/saranglee/Login/westagramLogo.svg';
-
 import '../common.scss';
 import './Login.scss';
 
@@ -12,11 +10,11 @@ class LoginSarang extends Component {
     this.state = {
       idValue: '',
       pwValue: '',
-      btnDisable: true
+      isBtnDisabled: true
     }
   }
 
-  handleInput = e => {
+  handleValue = e => {
     const { value, name } = e.target;
     this.setState({
       [name]: value
@@ -27,7 +25,7 @@ class LoginSarang extends Component {
     const { idValue, pwValue } = this.state;
     const isValid = idValue.includes('@') && pwValue.length >= 5;
     this.setState({
-      btnDisable: isValid ? false : true
+      isBtnDisabled: isValid ? false : true
     })
     if (isValid && e.key === 'Enter') {
       this.goToMain();
@@ -48,45 +46,45 @@ class LoginSarang extends Component {
   //   })
   // }
 
-  login = () => {
-    fetch("http://10.58.0.202:8000/user/signin", {
-      method: "POST",
-      body: JSON.stringify({
-        email: this.state.idValue,
-        password: this.state.pwValue
-      })
-    })
-    .then((response) => response.json())
-    .then((result) => {
-      if (result.token) {
-        localStorage.setItem("token", result.token);
-        this.goToMain()
-      } else alert("로그인 실패!")
-    })
-  }
+  // login = () => {
+  //   fetch("http://10.58.0.202:8000/user/signin", {
+  //     method: "POST",
+  //     body: JSON.stringify({
+  //       email: this.state.idValue,
+  //       password: this.state.pwValue
+  //     })
+  //   })
+  //   .then((response) => response.json())
+  //   .then((result) => {
+  //     if (result.token) {
+  //       localStorage.setItem("token", result.token);
+  //       this.goToMain()
+  //     } else alert("로그인 실패!")
+  //   })
+  // }
 
   goToMain = () => {
     this.props.history.push('/main-sarang')
   }
 
   render() {
-    const { btnDisable } = this.state;
-    const { validation, handleInput, goToMain } = this;
+    const { isBtnDisabled } = this.state;
+    const { validation, handleValue, goToMain } = this;
     return (
       <main className="loginSarang">
         <div className="logo_login_wrap">
-          <img className="logo_img" alt="Westagram Logo" src={ westagramLogo } />
+          <img className="logo_img" alt="Westagram Logo" src={westagramLogo} />
           <div className="login_container" onKeyPress={validation}>
             <input 
               className="id_input"
-              onChange={handleInput}
+              onChange={handleValue}
               type="text"
               name="idValue"
               placeholder="전화번호, 사용자 이름 또는 이메일"
             />
             <input 
               className="pw_input"
-              onChange={handleInput}
+              onChange={handleValue}
               type="password"
               name="pwValue"
               placeholder="비밀번호"
@@ -94,7 +92,7 @@ class LoginSarang extends Component {
             <button 
               className="login_btn" 
               onClick={goToMain}
-              disabled={btnDisable}
+              disabled={isBtnDisabled}
             >
               로그인
             </button>

@@ -78,11 +78,11 @@
     .likes_num, .feed_content, .comment_written, .time {
       @extend %flex-center;
       justify-content: column;
-      margin-bottom: 4px;
+      margin-bottom: 10px;
       padding: 0 16px;
     }
 
-    .likes_num p, .feed_content p, .comment_container p {
+    .likes_num p, .feed_content p, .comment p {
       padding-left: 5px;
       font-size: 14px;  
     }
@@ -99,6 +99,7 @@
     }
   
     .view_more {
+      padding: 0 0 0 8px;
       color: #8e8e8e;
     }
   
@@ -110,13 +111,23 @@
     
     .comment_written {
       @extend %flex-center;
-  
-      .comment_text {
-        font-size: 13px;
+      justify-content: space-between;
+
+      .comment_content {
+        display: flex;
+
+        .comment_text {
+          font-size: 14px;
+        }
+      }
+
+      .comment_like_btn {
+        width: 12px;
+        height: 12px;
       }
     }
-  
-    .comment {
+
+    .comment_container {
       @extend %flex-center;
       justify-content: space-between;
       height: 56px;
