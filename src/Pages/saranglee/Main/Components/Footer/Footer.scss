@@ -1,0 +1,20 @@
+.footer {
+  $lightGray: #c7c7c7;
+  margin-top: 16px;
+  font-size: 11px;
+  line-height: 16px;
+  color: $lightGray;
+
+  .language {
+    padding: 0;
+    font-size: 11px;
+    color: $lightGray;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .copyright {
+    margin-top: 20px;
+  }
+}

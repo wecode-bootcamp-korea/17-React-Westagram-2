@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "link": "https://about.instagram.com/",
+    "text": "소개"
+  },
+  {
+    "id": 2,
+    "link": "https://help.instagram.com/",
+    "text": "도움말"
+  },
+  {
+    "id": 3,
+    "link": "https://about.instagram.com/blog",
+    "text": "홍보 센터"
+  },
+  {
+    "id": 4,
+    "link": "https://www.instagram.com/developer/",
+    "text": "API"
+  },
+  {
+    "id": 5,
+    "link": "https://about.instagram.com/about-us/careers",
+    "text": "채용 정보"
+  },
+  {
+    "id": 6,
+    "link": "https://help.instagram.com/519522125107875",
+    "text": "개인정보처리방침"
+  },
+  {
+    "id": 7,
+    "link": "https://help.instagram.com/581066165581870",
+    "text": "약관"
+  },
+  {
+    "id": 8,
+    "link": "https://www.instagram.com/explore/locations/",
+    "text": "위치"
+  },
+  {
+    "id": 9,
+    "link": "https://www.instagram.com/directory/profiles/",
+    "text": "인기계정"
+  },
+  {
+    "id": 10,
+    "link": "https://www.instagram.com/directory/hashtags/",
+    "text": "해시태그"
+  }
+]

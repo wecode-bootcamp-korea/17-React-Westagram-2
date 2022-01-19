@@ -1,0 +1,90 @@
+.aside {
+  $bgColor: #fafafa;
+  $border: 1px solid #dbdbdb;
+
+  %flex-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  position: fixed;
+  width: 293px;
+
+  .my_profile {
+    @extend %flex-center;
+    margin-bottom: 20px;
+  }
+
+  .my_profile .user_id {
+    padding-left: 16px;
+  }
+
+  .stories, .recommendation {
+    display: block;
+    width: 100%;
+    max-height: 300px;
+    margin-top: 10px;
+    padding: 16px 16px 0 16px;
+    background-color: #fff;
+    border: $border;
+    border-radius: 3px;
+  }
+  
+  .aside_title_container {
+    display: flex;
+    justify-content: space-between;
+
+    .aside_title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8e8e8e;
+    }
+  
+    .show_all {
+      font-size: 12px;
+      font-weight: 600;
+      color: #262626;
+    }
+  }
+  
+  .story, .recommendedAccount {
+    @extend %flex-center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 14px 0;
+
+    .img_user_info {
+      display: inline-flex;
+      align-items: center;
+  
+      .aside_img {
+        @extend %flex-center;
+        justify-content: center;
+        position: relative;
+        width: 40px;
+        height: 40px;
+      }
+  
+      .user_id_info {
+        display: flex;
+        flex-direction: column;
+        margin-left: 8px;
+        font-size: 14px;
+    
+        .aside_user_info {
+          font-size: 12px;
+          font-weight: 400;
+          color: #8e8e8e;
+        }
+      }
+    }
+  }
+  
+  .story img {
+    position: absolute;
+  }
+
+  .story .user_id, .recommendedAccount .user_id {
+    padding-bottom: 4px;
+  }
+}

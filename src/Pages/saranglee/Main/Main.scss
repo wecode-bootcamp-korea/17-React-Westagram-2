@@ -1,0 +1,22 @@
+.main {
+  $bgColor: #fafafa;
+  $border: 1px solid #dbdbdb;
+
+  main {
+    display: flex;
+    position: relative;
+    width: 935px;
+    margin: auto;
+    padding-top: 94px;
+
+    .feeds {
+      display: block;
+      max-width: 616px;
+      margin-right: 28px;
+    }
+  }
+  
+  .wrap_main_right {
+    width: 293px;
+  }
+}
